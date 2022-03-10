@@ -1,6 +1,11 @@
 import React from 'react'
-import Contador from './Contador'
-import OnlineStatus from './OnlineStatus'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/js/bootstrap.bundle.js'
+
+// Componentes
+import Contador from './components/Contador'
+import Navbar from './components/Navbar'
+import OnlineStatus from './components/OnlineStatus'
 
 
 const App = () => {
@@ -16,7 +21,9 @@ const App = () => {
 
   return (
 
-    <div className="container text-center">
+    <div className="text-center">
+
+      <Navbar />
 
       <h1 className={claseBS.primary}>REACT JS - PRIMERA CLASE</h1>
 
