@@ -1,0 +1,60 @@
+* {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between; align-items: center;
+    background-color: #F2B705;
+    color: white;
+    margin-bottom: 2.5rem;
+}
+
+.brand {
+    padding-left: 5rem;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+}
+
+.brand .logo {
+    width: 3.8rem;
+}
+
+.brand a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.25rem;
+    font-weight: 600;
+    padding-left: 0.6rem;
+}
+
+nav ul {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    list-style: none;
+    padding-right: 5rem;
+}
+
+nav ul li {
+    padding-top: 1rem;
+    text-decoration: none;
+}
+
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    padding: 0 1rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.comic-cover img {
+    max-height: 17rem;
+  }
+

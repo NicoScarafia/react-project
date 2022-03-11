@@ -11,15 +11,14 @@ const OnlineStatus = () => {
     
 
     return (
-        <div className='mt-5'>
-            <hr />
+        <>
             <button
-                className={online ? 'btn btn-success mt-2' : 'btn btn-danger mt-2'}
+                className={online ? 'btn btn-success' : 'btn btn-danger'}
                 onClick={changeStatus}
             >
                 {online ? "You're online" : "You're offline"}
             </button>
-        </div>
+        </>
     )
 }
 
