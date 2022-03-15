@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import ItemCount from './ItemCount'
 
-const ComicIssue = ({ comic }) => {
+const ItemCount = ({ comic }) => {
 
     const [compra, setCompra] = useState(0)
 
@@ -20,14 +19,9 @@ const ComicIssue = ({ comic }) => {
         }
     }
 
+
     return (
-
-        <div className='m-4'>
-            <div className='comic-cover'>
-                <img src={comic.cover} alt={`Cover de ${comic.nombre}`} />
-            </div>
-            <h5 className='m-2'>{comic.nombre}</h5>
-
+        <>
             <div className='d-flex justify-content-center mt-3'>
 
                 <button className='btn btn-warning' onClick={disminuirCompra}>-1</button>
@@ -48,18 +42,9 @@ const ComicIssue = ({ comic }) => {
                 })()}
             </>
 
-            {/* <ItemCount /> */}
 
-            <div className='mt-3'>
-                <button
-                    className={comic.stock > 0 ? 'btn btn-success' : 'btn btn-danger'}
-                >
-                    {comic.stock > 0 ? 'Comprar' : 'Sin stock'}
-                </button>
-            </div>
-        </div>
-
+        </>
     )
 }
 
-export default ComicIssue
+export default ItemCount

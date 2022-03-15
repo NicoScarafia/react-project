@@ -32,7 +32,7 @@ const App = () => {
     {
       nombre: 'Superman - Red Son',
       cover: 'assets/img/superman.red-son.jpg',
-      stock: 1,
+      stock: 2,
     },
     {
       nombre: 'Dorohedoro - Volumen 1',
