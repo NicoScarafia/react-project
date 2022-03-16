@@ -61,14 +61,17 @@ const App = () => {
       </div>
 
       <div id='novedades' className='mt-5'>
+
         <hr />
         <h2 className='p-4'>NOVEDADES</h2>
+
         <div className='d-flex justify-content-center pb-4'>
           <ComicIssue comic={comic[0]} />
           <ComicIssue comic={comic[1]} />
           <ComicIssue comic={comic[2]} />
           <ComicIssue comic={comic[3]} />
         </div>
+
       </div>
 
       <hr />
@@ -85,7 +88,7 @@ const App = () => {
         </ol>
       </div>
 
-      <Contador />
+      <Contador valorInicial={5} />
 
       <br />
       <br />

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
-const Contador = () => {
+const Contador = ({valorInicial}) => {
 
-    const [contador, setContador] = useState(0)
+    const [contador, setContador] = useState(valorInicial)
 
     const aumentar = () => {
         setContador(contador + 1)

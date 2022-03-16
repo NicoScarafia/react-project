@@ -28,27 +28,7 @@ const ComicIssue = ({ comic }) => {
             </div>
             <h5 className='m-2'>{comic.nombre}</h5>
 
-            <div className='d-flex justify-content-center mt-3'>
-
-                <button className='btn btn-warning' onClick={disminuirCompra}>-1</button>
-
-                <p className='m-2'>{compra}</p>
-
-                <button className='btn btn-warning' onClick={aumentarCompra}>+1</button>
-
-            </div>
-
-            <>
-                {(() => {
-                    if (compra == comic.stock && compra != 0) {
-                        return (
-                            <div className='mt-2'><p>Esas son todas las unidades disponibles</p></div>
-                        )
-                    }
-                })()}
-            </>
-
-            {/* <ItemCount /> */}
+            <ItemCount comic={comic}/>
 
             <div className='mt-3'>
                 <button

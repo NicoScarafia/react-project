@@ -21,6 +21,7 @@ const ItemCount = ({ comic }) => {
 
 
     return (
+
         <>
             <div className='d-flex justify-content-center mt-3'>
 
@@ -32,17 +33,10 @@ const ItemCount = ({ comic }) => {
 
             </div>
 
-            <>
-                {(() => {
-                    if (compra == comic.stock && compra != 0) {
-                        return (
-                            <div className='mt-2'><p>Esas son todas las unidades disponibles</p></div>
-                        )
-                    }
-                })()}
-            </>
-
-
+            {compra == comic.stock && compra != 0 ? 
+                <div className='mt-2'><small>No hay más unidades disponibles</small></div> :
+                null
+            }
         </>
     )
 }
