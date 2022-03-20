@@ -54,7 +54,61 @@ nav ul li a {
     font-size: 1.1rem;
 }
 
-.comic-cover img {
-    max-height: 17rem;
-  }
+.App {
+    min-height: 100vh;
+}
 
+.novedades-titulo {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 3rem;
+    font-weight: 600;
+    margin: 3rem;
+}
+
+
+.comic-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 2rem 2rem;
+}
+
+.comic-card {
+    width: 12rem;
+    text-align: center;
+    margin: 1.3rem 1rem;
+}
+
+.img-div img {
+    width: 10rem;
+    height: 15rem;
+    object-fit: fill;
+    border: 0.1rem solid gray;
+}
+
+.comic-card h5 {
+    margin: 0.3rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.comic-card p {
+    margin: 0;
+}
+
+footer {
+    margin-top: 20rem;
+    width: 100%;
+    background-color: #F2B705;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+footer small {
+    color: black;
+    font-weight: 600;
+}
