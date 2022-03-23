@@ -6,19 +6,25 @@ import ItemDetail from './ItemDetail'
 const ItemDetailContainer = () => {
 
     const [comicDetail, setComicDetail] = useState([])
-    const [loading, setLoading] = useState(false)
+    const [cargando, setCargando] = useState(false)
 
     useEffect(() => {
-        setLoading(true)
+        setCargando(true)
         getComics()
-            .then( (res) => { setComicDetail(res.find(comic => comic.id === "2")) } )
-            .catch( (error) => {console.log(error)} )
-            .finally( setLoading(false) )
+            .then((res) => { setComicDetail(res.find(comic => comic.id === "3")) })
+            .catch((error) => { console.log(error) })
+            .finally(() => setCargando(false))
     }, [])
+
 
     return (
 
-        loading? <p>Cargando</p> : <ItemDetail comicDetail={comicDetail}/>
+        <div className='mt-5'>
+            <h2>DETALLE DEL PRODUCTO</h2>
+            <div className='mt-5'>
+                {cargando ? <Cargando /> : <ItemDetail comicDetail={comicDetail} />}
+            </div>
+        </div>
 
     )
 }

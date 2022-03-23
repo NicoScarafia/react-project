@@ -5,7 +5,7 @@ const comics = [
         cover: 'assets/img/batman.under-hood.jpg',
         stock: 3,
         precio: 660,
-        editorial: 'IVREA'
+        editorial: 'Dolman'
     },
     {
         id: '2',
@@ -13,7 +13,7 @@ const comics = [
         cover: 'assets/img/superman.red-son.jpg',
         stock: 12,
         precio: 560,
-        editorial: 'IVREA'
+        editorial: 'Norma'
     },
     {
         id: '3',
@@ -37,7 +37,7 @@ const comics = [
         cover: 'assets/img/v.jpg',
         stock: 7,
         precio: 600,
-        editorial: 'IVREA'
+        editorial: 'Astiberri'
     },
     {
         id: '6',
@@ -61,7 +61,7 @@ const comics = [
         cover: 'assets/img/punisher-n.jpg',
         stock: 5,
         precio: 450,
-        editorial: 'IVREA'
+        editorial: 'Norma'
     }
 ]
 

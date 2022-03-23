@@ -6,7 +6,7 @@ const ItemDetail = ({ comicDetail }) => {
 
     return (
 
-        <div className='d-flex justify-content-center mt-5'>
+        <div className='d-flex justify-content-center'>
             <div className="card text-white bg-success  mb-3" style={{ maxWidth: "600px" }}>
                 <div className="row g-0">
                     <div className="col-md-4">

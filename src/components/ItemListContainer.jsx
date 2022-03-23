@@ -8,9 +8,10 @@ const ItemListContainer = ({ titulo }) => {
 
     const [listaComics, setListaComics] = useState([])
 
-    const [cargando, setCargando] = useState(true)
+    const [cargando, setCargando] = useState(false)
 
     useEffect(() => {
+        setCargando(true)
         getComics()
             .then((res) => setListaComics(res))
             .catch(() => Swal.fire({
@@ -24,17 +25,11 @@ const ItemListContainer = ({ titulo }) => {
 
 
 
-    if (cargando) {
-        return <Cargando />
-    }
-    
     return (
-
         <div>
             <h2 className='novedades-titulo'>{titulo}</h2>
-            <ItemList listaComics={listaComics} />
+            {cargando? <Cargando /> : <ItemList listaComics={listaComics} />}
         </div>
-
     )
 }
 
