@@ -1,62 +1,19 @@
-import React, { useEffect, useState } from 'react'
-import Cargando from './Cargando'
+import React from 'react'
 import Item from './Item'
-import Swal from 'sweetalert2'
 
-const ItemList = ({ comic }) => {
-
-    const [listaComics, setListaComics] = useState([])
-
-    const [cargando, setCargando] = useState(false)
-
-    const getComics = () => {
-
-        setCargando(true)
-
-        return new Promise((res, rej) => {
-
-            let condition = true
-
-            if (condition) {
-                setTimeout(() => {
-                    res(comic)
-                }, 2000)
-            } else {
-                rej(console.error('Error en la obtención de datos'))
-            }
-        })
-    }
-
-    useEffect(() => {
-        getComics()
-            .then((res) => setListaComics(res))
-            .catch((err) => Swal.fire({
-                title: 'Error!',
-                text: 'Problema en la carga de datos',
-                icon: 'error',
-                confirmButtonText: 'Regresar'
-              }))
-            .finally(() => setCargando(false))
-    }, [])
-
-
-    if (cargando) {
-        return <Cargando />
-    }
-
+const ItemList = ({ listaComics }) => {
     return (
-        
-        <div>
 
-            <div className='comic-list'>
-                {listaComics.map((comic) => (
+        <div className='mb-5 comic-list'>
 
-                    <Item comic={comic} key={comic.nombre} />
+            {listaComics.map((comic) => (
 
-                ))}
-            </div>
+                <Item comic={comic} key={comic.id} />
+
+            ))}
 
         </div>
+
     )
 }
 

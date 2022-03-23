@@ -9,7 +9,7 @@ const Navbar = () => {
 
             <div className='brand'>
                 <img className='logo' src="assets/img/logo.png" alt="Logo OMG Comics" />
-                <a href="#">OMG Comics!</a>
+                <a href="#">OMG! Comics</a>
             </div>
 
             <nav>
