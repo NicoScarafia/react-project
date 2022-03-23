@@ -1,6 +1,5 @@
 import React from 'react'
 import CartWidget from './CartWidget'
-import OnlineStatus from './OnlineStatus'
 
 const Navbar = () => {
     return (
@@ -19,7 +18,6 @@ const Navbar = () => {
                     <li><a href="#">Mangas</a></li>
                     <li><a href="#">Figuras</a></li>
                     <li><CartWidget /></li>
-                    <li><OnlineStatus /></li>
                 </ul>
             </nav>
 
