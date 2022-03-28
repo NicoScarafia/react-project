@@ -27,11 +27,11 @@ const ItemCompra = ({ comic, initialCompra }) => {
                 comic.stock > 0 ?
 
                 <div className='d-flex justify-content-center mt-3'>
-                    <button className='btn btn-outline-success btn-sm' onClick={disminuirCompra}>-</button>
+                    <button className='btn btn-sm btn-outline-success' onClick={disminuirCompra}>-</button>
 
                     <p className='m-2'>{compra}</p>
 
-                        <button className='btn btn-outline-success btn-sm' onClick={aumentarCompra}>+</button>
+                        <button className='btn btn-sm btn-outline-success' onClick={aumentarCompra}>+</button>
                  </div>
 
                 : null

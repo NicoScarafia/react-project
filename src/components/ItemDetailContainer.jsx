@@ -1,28 +1,31 @@
 import React, { useState, useEffect } from 'react'
-import { getComics } from '../mocks/FakeAPI'
+import { useParams } from 'react-router-dom'
+import { getProducts } from '../mocks/FakeAPI'
 import Cargando from './Cargando'
 import ItemDetail from './ItemDetail'
 
 const ItemDetailContainer = () => {
 
-    const [comicDetail, setComicDetail] = useState([])
+    const [productDetail, setProductDetail] = useState([])
     const [cargando, setCargando] = useState(false)
+
+    const {itemId} = useParams()
 
     useEffect(() => {
         setCargando(true)
-        getComics()
-            .then((res) => { setComicDetail(res.find(comic => comic.id === "3")) })
+        getProducts()
+            .then((res) => { setProductDetail(res.find(product => product.id === itemId)) })
             .catch((error) => { console.log(error) })
             .finally(() => setCargando(false))
     }, [])
-
+    
 
     return (
 
-        <div className='mt-5'>
+        <div className='text-center mt-5'>
             <h2>DETALLE DEL PRODUCTO</h2>
             <div className='mt-5'>
-                {cargando ? <Cargando /> : <ItemDetail comicDetail={comicDetail} />}
+                {cargando ? <Cargando /> : <ItemDetail productDetail={productDetail} />}
             </div>
         </div>
 

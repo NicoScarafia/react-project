@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
 import CartWidget from './CartWidget'
 
 const Navbar = () => {
@@ -6,17 +8,21 @@ const Navbar = () => {
 
         <header className='header'>
 
+            <nav className='first-nav'>
+                <ul>
+                    <li> <Link to="/locales">Locales </Link> </li>
+                    <li> <Link to="/acerca-de">Acerca de nosotros</Link> </li>
+                </ul>
+            </nav>
+
             <div className='brand'>
-                <img className='logo' src="assets/img/logo.png" alt="Logo OMG Comics" />
-                <a href="#">OMG! Comics</a>
+                <Link to="/"><img className='logo' src="../assets/img/logo.png" alt="Logo OMG Comics" /></Link>
             </div>
 
             <nav>
                 <ul>
-                    <li><a href="#novedades">Novedades</a></li>
-                    <li><a href="#">Comics</a></li>
-                    <li><a href="#">Mangas</a></li>
-                    <li><a href="#">Figuras</a></li>
+                    <li> <Link to="/categoria/comics">Comics</Link> </li>
+                    <li> <Link to="/categoria/mangas">Mangas</Link> </li>
                     <li><CartWidget /></li>
                 </ul>
             </nav>
