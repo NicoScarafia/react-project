@@ -13,6 +13,7 @@ import ItemDetailContainer from './components/ItemDetailContainer'
 import Locales from './components/Locales';
 import AcercaDeNosotros from './components/AcercaDeNosotros';
 import Error404 from './components/Error404';
+import Cart from './components/Cart';
 
 
 const App = () => {
@@ -37,7 +38,7 @@ const App = () => {
 
           <Route path="/locales" element={<Locales />} />
           <Route path="/acerca-de" element={<AcercaDeNosotros />} />
-
+          <Route path="/cart" element={<Cart />} />  
           <Route path="*" element={<Error404 />} />
 
         </Routes>

@@ -8,7 +8,8 @@ body {
 }
 
 .App {
-    min-height: 100vh;
+    /* para que siempre exista la barra de navegación */
+    min-height: 110vh; 
     display: flex;
     flex-direction: column;
     justify-content: space-between;

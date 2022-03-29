@@ -10,7 +10,7 @@ const Navbar = () => {
 
             <nav className='first-nav'>
                 <ul>
-                    <li> <Link to="/locales">Locales </Link> </li>
+                    <li> <Link to="/locales">Locales</Link> </li>
                     <li> <Link to="/acerca-de">Acerca de nosotros</Link> </li>
                 </ul>
             </nav>

@@ -10,12 +10,12 @@ const products = [
     },
     {
         id: '2',
-        nombre: 'Superman - Red Son',
-        cover: '../assets/img/superman.red-son.jpg',
-        stock: 12,
-        precio: 560,
-        editorial: 'Norma',
-        categoria: 'comics'
+        nombre: 'Dorohedoro - Volumen 21',
+        cover: '../assets/img/dorohedoro-21.jpg',
+        stock: 0,
+        precio: 230,
+        editorial: 'IVREA',
+        categoria: 'mangas'
     },
     {
         id: '3',
@@ -55,12 +55,12 @@ const products = [
     },
     {
         id: '7',
-        nombre: 'Dorohedoro - Volumen 1',
-        cover: '../assets/img/dorohedoro.1.webp',
-        stock: 0,
-        precio: 230,
-        editorial: 'IVREA',
-        categoria: 'mangas'
+        nombre: 'Superman - Red Son',
+        cover: '../assets/img/superman-rs.jpg',
+        stock: 12,
+        precio: 560,
+        editorial: 'Norma',
+        categoria: 'comics'
     },
     {
         id: '8',
