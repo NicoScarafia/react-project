@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { CustomCartProvider } from './context/CartContext';
 
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.css'
@@ -15,38 +16,41 @@ import AcercaDeNosotros from './components/AcercaDeNosotros';
 import Error404 from './components/Error404';
 import Cart from './components/Cart';
 
-
 const App = () => {
 
   return (
 
-    <div className='App'>
-      <BrowserRouter>
+    <CustomCartProvider>
+      <div className='App'>
 
-        <Navbar />
+        <BrowserRouter>
 
+          <Navbar />
 
-        <Routes>
+          <Routes>
 
-          <Route path="/" element={<ItemListContainer titulo="Productos destacados" />} />
+            <Route path="/" element={<ItemListContainer titulo="Productos destacados" />} />
 
-          <Route path="/categoria/:categoryId" element={
-            <ItemListContainer titulo="Productos destacados" />}
-          />
+            <Route path="/categoria/:categoryId" element={
+              <ItemListContainer titulo="Productos destacados" />}
+            />
 
-          <Route path="detail/:itemId" element={<ItemDetailContainer />} />
+            <Route path="detail/:itemId" element={<ItemDetailContainer />} />
 
-          <Route path="/locales" element={<Locales />} />
-          <Route path="/acerca-de" element={<AcercaDeNosotros />} />
-          <Route path="/cart" element={<Cart />} />  
-          <Route path="*" element={<Error404 />} />
+            <Route path="/locales" element={<Locales />} />
+            <Route path="/acerca-de" element={<AcercaDeNosotros />} />
+            <Route path="/cart" element={<Cart />} />
 
-        </Routes>
+            <Route path="*" element={<Error404 />} />
 
-        <Footer />
+          </Routes>
 
-      </BrowserRouter>
-    </div>
+          <Footer />
+
+        </BrowserRouter>
+
+      </div>
+    </CustomCartProvider>
 
   )
 }

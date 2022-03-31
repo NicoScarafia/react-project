@@ -1,10 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { CartContext } from '../context/CartContext'
+
 import ItemCount from './ItemCount'
 
 const ItemDetail = ({ productDetail }) => {
 
     const { id, nombre, cover, stock = 5, precio, editorial, categoria } = productDetail
+
+    const { cart, addItem, isInCart } = useContext(CartContext)
 
 
     const navigate = useNavigate()
@@ -12,25 +16,20 @@ const ItemDetail = ({ productDetail }) => {
 
 
     const [compra, setCompra] = useState(1)
-    const [agregado, setAgregado] = useState(false)
 
     const agregarAlCarrito = () => {
-        setAgregado(true)
 
         const ItemToAdd = {
             nombre,
             editorial,
             cover,
-            precio, 
+            precio,
             compra
         }
-        console.log(ItemToAdd)
+
+        addItem(ItemToAdd)
     }
 
-    
-
-    
-    
 
     return (
 
@@ -54,13 +53,27 @@ const ItemDetail = ({ productDetail }) => {
                             </div>
                         </div>
 
-                        <ItemCount 
-                            stock={productDetail.stock}
-                            compra= {compra}
-                            setCompra= {setCompra} 
-                            agregarAlCarrito={agregarAlCarrito}
-                            agregado={agregado}
-                        />
+                        {
+                            !isInCart(nombre) ?
+                                <ItemCount
+                                    compra={compra}
+                                    stock={productDetail.stock}
+                                    setCompra={setCompra}
+                                    agregarAlCarrito={agregarAlCarrito}
+                                />
+                                :
+
+                                <div className='mt-3'>
+                                    <Link to="/">
+                                        <button className='btn mx-2 btn-sm btn-warning'>Continuar comprando</button>
+                                    </Link>
+                                    <Link to="/cart">
+                                        <button className='btn mx-2 btn-sm btn-primary'>Terminar compra</button>
+                                    </Link>
+                                </div>
+                        }
+
+
                     </div>
 
                 </div>
@@ -68,8 +81,12 @@ const ItemDetail = ({ productDetail }) => {
             </div>
 
             <div className='mt-5'>
-                <button onClick={handleNavigate} className='m-2 mb-5 btn btn-primary'>Volver</button>
-                <Link to="/" ><button className='m-2 mb-5 btn btn-primary'>Ir a la Home</button></Link>
+                <button onClick={handleNavigate} className='m-2 mb-5 btn btn-primary'>
+                    Volver
+                </button>
+                <Link to="/" ><button className='m-2 mb-5 btn btn-primary'>
+                    Ir a la Home
+                </button></Link>
             </div>
 
         </div>

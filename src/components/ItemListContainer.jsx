@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Swal from 'sweetalert2'
 import { getProducts } from '../mocks/FakeAPI'
 import ItemList from './ItemList'

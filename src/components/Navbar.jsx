@@ -19,12 +19,12 @@ const Navbar = () => {
                 <Link to="/"><img className='logo' src="../assets/img/logo.png" alt="Logo OMG Comics" /></Link>
             </div>
 
-            <nav>
+            <nav className='d-flex'>
                 <ul>
                     <li> <Link to="/categoria/comics">Comics</Link> </li>
                     <li> <Link to="/categoria/mangas">Mangas</Link> </li>
-                    <li><CartWidget /></li>
                 </ul>
+                    <Link to="/cart"><CartWidget /></Link>
             </nav>
 
         </header>
