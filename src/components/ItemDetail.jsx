@@ -4,14 +4,19 @@ import ItemCount from './ItemCount'
 
 const ItemDetail = ({ productDetail }) => {
 
-    const { id, nombre, cover, stock, precio, editorial, categoria } = productDetail
+    const { id, nombre, cover, stock = 5, precio, editorial, categoria } = productDetail
+
 
     const navigate = useNavigate()
+    const handleNavigate = () => { navigate(-1) }
 
 
     const [compra, setCompra] = useState(1)
+    const [agregado, setAgregado] = useState(false)
 
     const agregarAlCarrito = () => {
+        setAgregado(true)
+
         const ItemToAdd = {
             nombre,
             editorial,
@@ -21,6 +26,10 @@ const ItemDetail = ({ productDetail }) => {
         }
         console.log(ItemToAdd)
     }
+
+    
+
+    
     
 
     return (
@@ -47,9 +56,10 @@ const ItemDetail = ({ productDetail }) => {
 
                         <ItemCount 
                             stock={productDetail.stock}
-                            agregarAlCarrito={agregarAlCarrito}
                             compra= {compra}
                             setCompra= {setCompra} 
+                            agregarAlCarrito={agregarAlCarrito}
+                            agregado={agregado}
                         />
                     </div>
 
@@ -58,7 +68,7 @@ const ItemDetail = ({ productDetail }) => {
             </div>
 
             <div className='mt-5'>
-                <button onClick={() => { navigate(-1) }} className='m-2 mb-5 btn btn-primary'>Volver</button>
+                <button onClick={handleNavigate} className='m-2 mb-5 btn btn-primary'>Volver</button>
                 <Link to="/" ><button className='m-2 mb-5 btn btn-primary'>Ir a la Home</button></Link>
             </div>
 

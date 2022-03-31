@@ -12,7 +12,7 @@ const products = [
         id: '2',
         nombre: 'Dorohedoro - Volumen 21',
         cover: '../assets/img/dorohedoro-21.jpg',
-        stock: 0,
+        stock: 24,
         precio: 230,
         editorial: 'IVREA',
         categoria: 'mangas'
@@ -30,7 +30,7 @@ const products = [
         id: '4',
         nombre: 'Sakura CC - Volumen 6',
         cover: '../assets/img/sakuracardcaptor-6.jpg',
-        stock: 0,
+        stock: 19,
         precio: 180,
         editorial: 'IVREA',
         categoria: 'mangas'
@@ -39,7 +39,7 @@ const products = [
         id: '5',
         nombre: 'V de Vendetta',
         cover: '../assets/img/v.jpg',
-        stock: 7,
+        stock: 0,
         precio: 600,
         editorial: 'Astiberri',
         categoria: 'comics'

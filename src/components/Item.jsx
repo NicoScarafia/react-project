@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Item = ({ comic }) => {
 
-  const { nombre, cover, stock, precio, categoria, id } = comic
+  const { nombre, cover, precio, categoria, id } = comic
 
   return (
 
