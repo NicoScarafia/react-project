@@ -37,7 +37,7 @@ const CartItem = ({ item }) => {
                         </button>
                         :
                         <button
-                            onClick={handleEditar} className='btn mx-1 btn-sm btn-success'><i class="bi bi-check-lg"></i>
+                            onClick={handleEditar} className='btn mx-1 btn-sm btn-success'><i className="bi bi-check-lg"></i>
                             Realizado
                         </button>}
 
