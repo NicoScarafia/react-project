@@ -1,11 +1,17 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { CartContext } from '../context/CartContext'
 
 const CartItem = ({ item }) => {
 
-    const { nombre, cover, compra, precio } = item
+    const { nombre, cover, compra, precio, stock } = item
 
-    const {eliminarElemento} = useContext(CartContext)
+    const { aumentarCantidad, disminuirCantidad, eliminarElemento } = useContext(CartContext)
+
+    const [editar, setEditar] = useState(false)
+    const handleEditar = () => {
+        !editar ? setEditar(true) : setEditar(false)
+    }
+
 
     return (
 
@@ -23,8 +29,41 @@ const CartItem = ({ item }) => {
                 </div>
 
                 <div className='cart-buttons'>
-                    {/* <button className='btn mx-1 btn-sm btn-warning'><i className="bi bi-pen-fill"></i>Editar</button> */}
-                    <button onClick={() => eliminarElemento(nombre)} className='btn mx-1 btn-sm btn-danger'><i className="bi bi-trash-fill"></i>Eliminar</button>
+
+                    {!editar ?
+                        <button
+                            onClick={handleEditar} className='btn mx-1 btn-sm btn-warning'><i className="bi bi-pen-fill"></i>
+                            Editar
+                        </button>
+                        :
+                        <button
+                            onClick={handleEditar} className='btn mx-1 btn-sm btn-success'><i class="bi bi-check-lg"></i>
+                            Realizado
+                        </button>}
+
+                    {
+                        editar ?
+                            <div className='mt-2'>
+                                <button
+                                    onClick={() => disminuirCantidad(nombre)} className='btn mx-1 btn-sm btn-warning'>
+                                    -
+                                </button>
+
+                                <span className='text-dark'>{compra} / {stock}</span>
+
+                                <button onClick={() => aumentarCantidad(nombre)} className='btn mx-1 btn-sm btn-warning'>
+                                    +
+                                </button> </div>
+                            : null
+                    }
+
+                    {
+                        !editar ?
+                            <button onClick={() => eliminarElemento(nombre)} className='btn mx-1 btn-sm btn-danger'><i className="bi bi-trash-fill"></i>
+                                Eliminar
+                            </button>
+                            : null
+                    }
                 </div>
             </div>
 

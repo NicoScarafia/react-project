@@ -7,7 +7,6 @@ const Cart = () => {
 
   const { cart, vaciarCarrito, cartTotal } = useContext(CartContext)
 
-
   return (
 
     <div className='text-center mt-5'>

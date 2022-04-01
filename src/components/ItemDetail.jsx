@@ -24,7 +24,8 @@ const ItemDetail = ({ productDetail }) => {
             editorial,
             cover,
             precio,
-            compra
+            compra,
+            stock
         }
 
         addItem(ItemToAdd)
