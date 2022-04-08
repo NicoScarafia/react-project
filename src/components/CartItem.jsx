@@ -30,16 +30,18 @@ const CartItem = ({ item }) => {
 
                 <div className='cart-buttons'>
 
-                    {!editar ?
-                        <button
-                            onClick={handleEditar} className='btn mx-1 btn-sm btn-warning'><i className="bi bi-pen-fill"></i>
-                            Editar
-                        </button>
-                        :
-                        <button
-                            onClick={handleEditar} className='btn mx-1 btn-sm btn-success'><i className="bi bi-check-lg"></i>
-                            Realizado
-                        </button>}
+                    {
+                        !editar ?
+                            <button
+                                onClick={handleEditar} className='btn mx-1 btn-sm btn-warning'><i className="bi bi-pen-fill"></i>
+                                Editar
+                            </button>
+                            :
+                            <button
+                                onClick={handleEditar} className='btn mx-1 btn-sm btn-success'><i className="bi bi-check-lg"></i>
+                                Realizado
+                            </button>
+                    }
 
                     {
                         editar ?
@@ -53,7 +55,8 @@ const CartItem = ({ item }) => {
 
                                 <button onClick={() => aumentarCantidad(nombre)} className='btn mx-1 btn-sm btn-warning'>
                                     +
-                                </button> </div>
+                                </button> 
+                            </div>
                             : null
                     }
 

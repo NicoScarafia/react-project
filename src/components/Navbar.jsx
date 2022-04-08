@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 import CartWidget from './CartWidget'
 
+
 const Navbar = () => {
     return (
 

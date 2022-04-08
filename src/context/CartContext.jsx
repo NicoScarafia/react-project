@@ -66,17 +66,6 @@ export const CustomCartProvider = ({children}) => {
         setCart(productoSeleccionado);
     };
 
-    
-    // const cartTotal2 = () => {
-    //     const precioCompra = []
-    //     for (let i = 0; i < cart.length; i++) {
-    //         let precioItem = cart[i].precio * cart[i].compra
-    //         precioCompra.push(precioItem)
-    //     }
-    //     const precioTotal = precioCompra.reduce((a, b) => a + b, 0)
-    //     return precioTotal
-    // }
-
 
     return (
 

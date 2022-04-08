@@ -1,7 +1,10 @@
 import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
 import { CartContext } from '../context/CartContext'
+
+// Componentes
+import { Link } from 'react-router-dom'
 import CartItem from './CartItem'
+
 
 const Cart = () => {
 
@@ -15,12 +18,15 @@ const Cart = () => {
 
       {
         cart.length === 0 ?
+
           <div className='mt-5'>
             <p>Aún no tenés productos en tu carrito</p>
             
             <Link to="/" ><button className='mt-5 btn btn-primary'>Ir a la Home</button></Link>
           </div>
+
           :
+          
           <div>
             <div className='my-5'>
               {

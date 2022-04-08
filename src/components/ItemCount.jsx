@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+
 
 const ItemCount = ({ stock = 5, compra, setCompra, agregarAlCarrito }) => {
 
@@ -15,7 +15,6 @@ const ItemCount = ({ stock = 5, compra, setCompra, agregarAlCarrito }) => {
 
 
     return (
-
         <>
             {
                 stock === 0 ?
@@ -37,8 +36,6 @@ const ItemCount = ({ stock = 5, compra, setCompra, agregarAlCarrito }) => {
                     </div>
             }
         </>
-
-
     )
 }
 

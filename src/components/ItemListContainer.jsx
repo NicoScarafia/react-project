@@ -1,9 +1,14 @@
-import React, { useContext, useEffect, useState } from 'react'
-import Swal from 'sweetalert2'
-import { getProducts } from '../mocks/FakeAPI'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+
+// Firebase
+import { collection, getDocs, where } from "firebase/firestore"
+import { db } from "../firebase/config"
+
+// Componentes
 import ItemList from './ItemList'
 import Cargando from './Cargando'
-import { useParams } from 'react-router-dom'
+
 
 const ItemListContainer = ({ titulo }) => {
 
@@ -15,25 +20,31 @@ const ItemListContainer = ({ titulo }) => {
 
     useEffect(() => {
         setCargando(true)
-        
-        getProducts()
 
-            .then((res) => {
-                if (categoryId) {
-                    setListaProductos(res.filter( (product) => product.categoria === categoryId) )
-                } else {
-                    setListaProductos(res)
-                }
+        const productosRef = collection(db, "productos")
+        const query = categoryId ? query(productosRef, where('categoria', '==', categoryId)) : productosRef
+
+        getDocs(query)
+            .then( res => {
+                let items = res.docs.map( (doc) => (
+                    { 
+                        id: doc.id,
+                        ...doc.data()
+                    }
+                ))
+                console.log(items)
+                
+                items = items.sort( (a, b) => {
+                    if (a.nombre < b.nombre) { return -1 }
+                    if (a.nombre > b.nombre) { return 1 }
+                    return 0;
+                })
+                
+                setListaProductos(items)
             })
+            .catch( (err) => {console.log(err)} ) 
+            .finally( () => setCargando(false) )
 
-            .catch(() => Swal.fire({
-                title: 'Error!',
-                text: 'Problema en la carga de datos',
-                icon: 'error',
-                confirmButtonText: 'Regresar'
-            }))
-
-            .finally(() => setCargando(false))
     }, [categoryId])
 
 
@@ -41,7 +52,11 @@ const ItemListContainer = ({ titulo }) => {
     return (
         <div>
             <h2 className='novedades-titulo'>{titulo}</h2>
-            {cargando? <Cargando /> : <ItemList listaProductos={listaProductos} />}
+            {
+                cargando
+                ? <Cargando /> 
+                : <ItemList listaProductos={listaProductos} />
+            }
         </div>
     )
 }

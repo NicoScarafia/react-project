@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { getProducts } from '../mocks/FakeAPI'
+
+// Firebase
+import { db } from '../firebase/config'
+import { doc, getDoc, getDocs } from "firebase/firestore"
+
+// Componentes
 import Cargando from './Cargando'
 import ItemDetail from './ItemDetail'
+
 
 const ItemDetailContainer = () => {
 
@@ -13,10 +19,17 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
         setCargando(true)
-        getProducts()
-            .then((res) => { setProductDetail(res.find(product => product.id === itemId)) })
-            .catch((error) => { console.log(error) })
-            .finally(() => setCargando(false))
+
+        const docRef = doc(db, "productos", itemId)
+        getDoc(docRef)
+            .then(doc => {
+                const prod = {
+                    id: doc.id,
+                    ...doc.data()
+                }
+                setProductDetail(prod)
+            })
+            .finally( ()=> {setCargando(false)} )
     }, [])
     
 

@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CustomCartProvider } from './context/CartContext';
 
+// Estilos
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.bundle.js'
@@ -9,12 +10,13 @@ import 'bootstrap/dist/js/bootstrap.bundle.js'
 // Componentes
 import Navbar from './components/Navbar'
 import ItemListContainer from './components/ItemListContainer'
-import Footer from './components/Footer';
 import ItemDetailContainer from './components/ItemDetailContainer'
+import Cart from './components/Cart';
 import Locales from './components/Locales';
 import AcercaDeNosotros from './components/AcercaDeNosotros';
+import Footer from './components/Footer';
 import Error404 from './components/Error404';
-import Cart from './components/Cart';
+
 
 const App = () => {
 
