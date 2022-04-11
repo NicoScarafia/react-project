@@ -44,28 +44,26 @@ const CartItem = ({ item }) => {
                     }
 
                     {
-                        editar ?
-                            <div className='mt-2'>
-                                <button
-                                    onClick={() => disminuirCantidad(nombre)} className='btn mx-1 btn-sm btn-warning'>
-                                    -
-                                </button>
+                        editar &&
+                        <div className='mt-2'>
+                            <button
+                                onClick={() => disminuirCantidad(nombre)} className='btn mx-1 btn-sm btn-warning'>
+                                -
+                            </button>
 
-                                <span className='text-dark'>{compra} / {stock}</span>
+                            <span className='text-dark'>{compra} / {stock}</span>
 
-                                <button onClick={() => aumentarCantidad(nombre)} className='btn mx-1 btn-sm btn-warning'>
-                                    +
-                                </button> 
-                            </div>
-                            : null
+                            <button onClick={() => aumentarCantidad(nombre)} className='btn mx-1 btn-sm btn-warning'>
+                                +
+                            </button>
+                        </div>
                     }
 
                     {
-                        !editar ?
-                            <button onClick={() => eliminarElemento(nombre)} className='btn mx-1 btn-sm btn-danger'><i className="bi bi-trash-fill"></i>
-                                Eliminar
-                            </button>
-                            : null
+                        !editar &&
+                        <button onClick={() => eliminarElemento(nombre)} className='btn mx-1 btn-sm btn-danger'><i className="bi bi-trash-fill"></i>
+                            Eliminar
+                        </button>
                     }
                 </div>
             </div>

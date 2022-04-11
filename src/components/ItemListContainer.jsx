@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 // Firebase
-import { collection, getDocs, where } from "firebase/firestore"
+import { collection, getDocs, where, query } from "firebase/firestore"
 import { db } from "../firebase/config"
 
 // Componentes
@@ -22,9 +22,9 @@ const ItemListContainer = ({ titulo }) => {
         setCargando(true)
 
         const productosRef = collection(db, "productos")
-        const query = categoryId ? query(productosRef, where('categoria', '==', categoryId)) : productosRef
+        const q = categoryId ? query(productosRef, where('categoria', '==', categoryId)) : productosRef
 
-        getDocs(query)
+        getDocs(q)
             .then( res => {
                 let items = res.docs.map( (doc) => (
                     { 
@@ -32,7 +32,6 @@ const ItemListContainer = ({ titulo }) => {
                         ...doc.data()
                     }
                 ))
-                console.log(items)
                 
                 items = items.sort( (a, b) => {
                     if (a.nombre < b.nombre) { return -1 }
