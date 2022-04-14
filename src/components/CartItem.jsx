@@ -33,12 +33,12 @@ const CartItem = ({ item }) => {
                     {
                         !editar ?
                             <button
-                                onClick={handleEditar} className='btn mx-1 btn-sm btn-warning'><i className="bi bi-pen-fill"></i>
+                                onClick={handleEditar} className='btn mx-1 btn-sm btn-warning'><i className="bi bi-pen-fill" style={{marginRight: '0.3rem'}}></i>
                                 Editar
                             </button>
                             :
                             <button
-                                onClick={handleEditar} className='btn mx-1 btn-sm btn-success'><i className="bi bi-check-lg"></i>
+                                onClick={handleEditar} className='btn mx-1 btn-sm btn-success'><i className="bi bi-check-lg" style={{marginRight: '0.3rem'}}></i>
                                 Realizado
                             </button>
                     }
@@ -61,7 +61,7 @@ const CartItem = ({ item }) => {
 
                     {
                         !editar &&
-                        <button onClick={() => eliminarElemento(nombre)} className='btn mx-1 btn-sm btn-danger'><i className="bi bi-trash-fill"></i>
+                        <button onClick={() => eliminarElemento(nombre)} className='btn mx-1 btn-sm btn-danger'><i style={{marginRight: '0.3rem'}} className="bi bi-trash-fill"></i>
                             Eliminar
                         </button>
                     }

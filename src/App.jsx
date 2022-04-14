@@ -1,12 +1,10 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CustomCartProvider } from './context/CartContext';
-
 // Estilos
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.bundle.js'
-
 // Componentes
 import Navbar from './components/Navbar'
 import ItemListContainer from './components/ItemListContainer'
@@ -16,9 +14,13 @@ import Locales from './components/Locales';
 import AcercaDeNosotros from './components/AcercaDeNosotros';
 import Footer from './components/Footer';
 import Error404 from './components/Error404';
+import Checkout from './components/Checkout';
+import HomePage from './pages/HomePage';
 
 
 const App = () => {
+
+
 
   return (
 
@@ -26,15 +28,17 @@ const App = () => {
       <div className='App'>
 
         <BrowserRouter>
-
+        
           <Navbar />
 
           <Routes>
 
-            <Route path="/" element={<ItemListContainer titulo="Productos destacados" />} />
+            {/* <Route path="/" element={<ItemListContainer titulo="Productos destacados" />} /> */}
+            <Route path="/" element={<HomePage />} />
+            <Route path="/productos" element={<ItemListContainer />} />
 
-            <Route path="/categoria/:categoryId" element={
-              <ItemListContainer titulo="Productos destacados" />}
+            <Route path="/productos/:categoryId" element={
+              <ItemListContainer />}
             />
 
             <Route path="detail/:itemId" element={<ItemDetailContainer />} />
@@ -42,6 +46,7 @@ const App = () => {
             <Route path="/locales" element={<Locales />} />
             <Route path="/acerca-de" element={<AcercaDeNosotros />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
 
             <Route path="*" element={<Error404 />} />
 

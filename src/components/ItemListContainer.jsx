@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-
 // Firebase
-import { collection, getDocs, where, query } from "firebase/firestore"
+import { collection, getDocs, query, where, limit } from "firebase/firestore"
 import { db } from "../firebase/config"
-
 // Componentes
 import ItemList from './ItemList'
 import Cargando from './Cargando'
+import SearchForm from './SearchForm'
+// Estilos
+import '../styles/Catalogo.scss'
 
 
-const ItemListContainer = ({ titulo }) => {
+const ItemListContainer = () => {
 
     const [listaProductos, setListaProductos] = useState([])
 
@@ -22,6 +23,7 @@ const ItemListContainer = ({ titulo }) => {
         setCargando(true)
 
         const productosRef = collection(db, "productos")
+
         const q = categoryId ? query(productosRef, where('categoria', '==', categoryId)) : productosRef
 
         getDocs(q)
@@ -47,14 +49,31 @@ const ItemListContainer = ({ titulo }) => {
     }, [categoryId])
 
 
+    // Search Form
+    const handleSubmit = (e) => {
+        e.preventDefault()
+    }
+    const handleChange = (e) => {
+        setSearch(e.target.value)
+    }
+    const [search, setSearch] = useState('')
+
 
     return (
         <div>
-            <h2 className='novedades-titulo'>{titulo}</h2>
+            <h2 className='catalogo-titulo'>
+                {categoryId ? `Catálogo de ${categoryId}` : 'Catálogo de Productos'}
+            </h2>
+
+            <SearchForm 
+                handleSubmit={handleSubmit} 
+                handleChange={handleChange}
+            />
+
             {
                 cargando
                 ? <Cargando /> 
-                : <ItemList listaProductos={listaProductos} />
+                : <ItemList listaProductos={listaProductos} search={search} />
             }
         </div>
     )

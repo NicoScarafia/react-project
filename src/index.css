@@ -1,5 +1,9 @@
+* {
+  margin: 0;  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -11,3 +15,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "aAbsoluteEmpire";
+  src: local("aAbsoluteEmpire"),
+  url("../public/assets/fonts/aAbsoluteEmpire.ttf") format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Deadly Advance";
+  src: local("Deadly Advance"),
+  url("../public/assets/fonts/Deadly Advance.ttf") format("truetype");
+  font-weight: bold;
+}
+
+

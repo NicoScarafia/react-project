@@ -65,11 +65,12 @@ const ItemDetail = ({ productDetail }) => {
                                 :
 
                                 <div className='mt-3'>
-                                    <Link to="/">
-                                        <button className='btn mx-2 btn-sm btn-warning'>Continuar comprando</button>
-                                    </Link>
+                                    <button onClick={handleNavigate} className='btn mx-2 btn-sm btn-warning'>
+                                        <i className="bi bi-bag-plus"></i> Continuar comprando
+                                    </button>
                                     <Link to="/cart">
-                                        <button className='btn mx-2 btn-sm btn-primary'>Terminar compra</button>
+                                        <button className='btn mx-2 btn-sm btn-primary'>
+                                            <i className="bi bi-cart-fill"></i> Ir al carrito</button>
                                     </Link>
                                 </div>
                         }

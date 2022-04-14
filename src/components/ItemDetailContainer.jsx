@@ -15,7 +15,7 @@ const ItemDetailContainer = () => {
     const [productDetail, setProductDetail] = useState([])
     const [cargando, setCargando] = useState(false)
 
-    const {itemId} = useParams()
+    const { itemId } = useParams()
 
     useEffect(() => {
         setCargando(true)
@@ -29,16 +29,20 @@ const ItemDetailContainer = () => {
                 }
                 setProductDetail(prod)
             })
-            .finally( ()=> {setCargando(false)} )
+            .finally(() => { setCargando(false) })
     }, [])
-    
+
 
     return (
 
         <div className='text-center mt-5'>
             <h2>DETALLE DEL PRODUCTO</h2>
             <div className='mt-5'>
-                {cargando ? <Cargando /> : <ItemDetail productDetail={productDetail} />}
+                {
+                    cargando
+                        ? <Cargando />
+                        : <ItemDetail productDetail={productDetail} />
+                }
             </div>
         </div>
 

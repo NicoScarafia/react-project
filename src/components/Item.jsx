@@ -3,13 +3,15 @@ import { Link } from 'react-router-dom'
 
 const Item = ({ comic }) => {
 
-  const { nombre, cover, precio, categoria, id } = comic
+  const { nombre, cover, precio, categoria, id, editorial } = comic
 
   return (
 
     <div className='comic-card'>
 
-      <div className='img-div'><img src={cover} alt={`Cover de ${nombre}`} /></div>
+      <div className='img-div'>
+        <img src={cover} alt={`Cover de ${nombre}`} />
+      </div>
       
       <small className='category'>{categoria}</small>
       <h5>{nombre}</h5>

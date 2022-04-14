@@ -1,0 +1,59 @@
+$accent-color: #fbb034;
+
+.newsletter-container {
+    display: flex;  flex-direction: column;
+    justify-content: center;    align-items: center;
+    margin: 4rem 0;
+
+    h3 {
+        font-size: 2rem;
+        font-weight: 600;
+        color: white;
+    }
+
+    form {
+        margin-top: 1rem;
+
+        input {
+            padding: 0.3rem;
+            border-radius: 0.3rem;
+            text-align: center;
+            font-size: 0.9rem;
+            border: none;
+            width: 15rem;    height: 2rem;
+            margin: 0 0.3rem;
+        }
+        
+        button {
+            background: orange;
+            font-size: 0.9rem;
+            border: none;
+            padding: 0.3rem;
+            border-radius: 0.3rem;
+            width: 3.8rem;  height: 2rem;
+
+            &:hover {
+                background-color: lighten(orange, 10%);
+            }
+        }
+
+        small {
+            font-size: 0.9rem;
+            display: flex;    
+            justify-content: center;    align-items: center;
+            margin-top: 0.3rem;
+
+            i {
+                margin-right: 0.3rem;
+            }
+        }
+
+        .success {
+            color: seagreen;
+        }
+        .error {
+            color: indianred;
+        }
+    }
+
+}

@@ -15,7 +15,7 @@ const Error404 = () => {
       <h1 className='not-found-title'>Página no encontrada</h1>
 
       <div className='d-flex justify-content-center'>
-        <Link to="/"><button className='mt-4 btn btn-primary'>Ir a Home</button></Link>
+        <Link to="/"><button className='mt-4 btn btn-primary'>Ir al Home</button></Link>
       </div>
 
 

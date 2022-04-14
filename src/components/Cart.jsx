@@ -37,13 +37,23 @@ const Cart = () => {
           }
         </div>
 
+        <button onClick={vaciarCarrito} className='btn btn-sm btn-danger'>
+          <i className="bi bi-trash-fill"></i> Vaciar todo el carrito
+        </button>
+
         <h3 className='my-5'>TOTAL DE LA COMPRA:
           <span className='fw-bold text-warning'> ${cartTotal()}</span>
         </h3>
 
-        <button onClick={vaciarCarrito} className='btn btn-danger'>
-          <i className="bi bi-trash-fill"></i> Vaciar todo el carrito
-        </button>
+        <Link to="/checkout">
+          <button className='btn btn-xl btn-primary'>
+            Terminar compra
+          </button>
+        </Link>
+
+
+
+
       </div>
     </div>
 

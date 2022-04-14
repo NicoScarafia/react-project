@@ -1,0 +1,48 @@
+.catalogo-titulo {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 3rem;
+    font-weight: 600;
+    margin: 3rem;
+}
+
+
+.comic-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 2rem 2rem;
+}
+
+.comic-card {
+    width: 12rem;
+    text-align: center;
+    margin: 1.5rem 1rem;
+    background-color: rgba(197, 197, 197, 0.048);
+    padding: 1rem 0.5rem;
+    border-radius: 0.6rem;
+
+    .img-div img {
+        width: 10rem;
+        object-fit: fill;
+        border: 0.1rem solid gray;
+    }
+
+    .category {
+        text-transform: uppercase;
+        opacity: 30%;
+        margin: 0;   padding: 0;
+    }
+
+    h5 {
+        margin: 0.3rem;
+        font-size: 1.05rem;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+    
+    p {
+        font-size: 0.95rem;
+        margin: 0.2rem 0;
+    }
+}

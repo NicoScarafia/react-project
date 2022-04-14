@@ -1,0 +1,33 @@
+.checkout-container {
+    text-align: center;
+
+    h2 {
+        margin-top: 2rem;
+        font-size: 2.5rem;
+        font-weight: 700;
+    }
+
+    p {
+        font-size: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .container {
+        max-width: 26rem;
+        margin-top: 2rem;
+    }
+
+
+    small {
+            font-size: 0.9rem;
+            color: white;
+            display: flex;    
+            justify-content: center;    align-items: center;
+            margin-top: -0.3rem;
+            color: indianred;
+
+            i {
+                margin-right: 0.3rem;
+            }
+    }
+}
