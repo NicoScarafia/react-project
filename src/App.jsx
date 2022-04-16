@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CustomCartProvider } from './context/CartContext';
 import { AuthContextProvider } from './context/AuthContext';
 // Estilos
-import './App.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.bundle.js'
 // Componentes
@@ -26,36 +25,36 @@ const App = () => {
 
     <div className="App">
       <CustomCartProvider>
-      <AuthContextProvider>
-      
-        <BrowserRouter>
-  
-          <Navbar />
+        <AuthContextProvider>
 
-          <Routes>
+          <BrowserRouter>
 
-            <Route path="/" element={<HomePage />} />
-            <Route path="/productos" element={<ItemListContainer />} />
+            <Navbar />
 
-            <Route path="/user" element={<UserPage />} />
+            <Routes>
 
-            <Route path="/productos/:categoryId" element={ <ItemListContainer />}      />
+              <Route path="/" element={<HomePage />} />
+              <Route path="/productos" element={<ItemListContainer />} />
 
-            <Route path="detail/:itemId" element={<ItemDetailContainer />} />
+              <Route path="/user" element={<UserPage />} />
 
-            <Route path="/acerca-de" element={<AcercaDeNosotros />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/checkout" element={<Checkout />} />
+              <Route path="/productos/:categoryId" element={<ItemListContainer />} />
 
-            <Route path="*" element={<Error404 />} />
+              <Route path="detail/:itemId" element={<ItemDetailContainer />} />
 
-          </Routes>
+              <Route path="/acerca-de" element={<AcercaDeNosotros />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/checkout" element={<Checkout />} />
 
-          <Footer />
+              <Route path="*" element={<Error404 />} />
 
-        </BrowserRouter>
-      </AuthContextProvider>
-    </CustomCartProvider>
+            </Routes>
+
+            <Footer />
+
+          </BrowserRouter>
+        </AuthContextProvider>
+      </CustomCartProvider>
     </div>
 
   )

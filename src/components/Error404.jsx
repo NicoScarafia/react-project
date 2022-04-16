@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+// Estilos
+import '../styles/Error404.scss'
 
 const Error404 = () => {
 

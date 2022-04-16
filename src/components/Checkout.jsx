@@ -5,13 +5,14 @@ import Swal from 'sweetalert2'
 import { CartContext } from '../context/CartContext'
 import { AuthContext } from '../context/AuthContext'
 // RouterDom
-import { Navigate, useNavigate, Link } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 // Firebase
-import { addDoc, doc, collection, getDoc, Timestamp, updateDoc, writeBatch, query, where, documentId, getDocs } from 'firebase/firestore'
+import { addDoc, collection, Timestamp, writeBatch, query, where, documentId, getDocs } from 'firebase/firestore'
 import { db } from '../firebase/config'
 // Estilos
 import '../styles/Checkout.scss'
 import '../styles/UserForm.scss'
+// Componentes
 import BotonesHomeNavigation from './BotonesHomeNavigation'
 import InicioSesion from './InicioSesion'
 
@@ -37,7 +38,6 @@ const Checkout = () => {
 
   const updateDatabase = async (orden) => {
 
-    // actualiza el stock de la base de datos
     const batch = writeBatch(db)
     const ordersRef = collection(db, 'ordenes')
     const productosRef = collection(db, 'productos')
@@ -78,7 +78,6 @@ const Checkout = () => {
 
     else {
       const itemSinStock = outOfStock.map(item => item.nombre)
-      console.log(outOfStock.length)
 
       // outOfStock.forEach(item => {
       //   eliminarElemento(item.nombre)

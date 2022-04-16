@@ -1,0 +1,43 @@
+.cart-card {
+    display: flex;
+    padding: 0.5rem;
+    background-color: whitesmoke;
+    margin: 1rem auto;
+    width: 32rem;
+    height: 12rem;
+    border-radius: 10px;
+    position: relative;
+}
+
+.cart-card-right {
+    text-align: left;
+    margin-left: 1.5rem;
+
+    h3 {
+        font-size: 1.15rem;
+        color: black;
+        font-weight: 600;
+        padding-top: 0.5rem;
+        text-transform: uppercase;
+    }
+
+    p {
+        font-size: 1rem;
+        color: black;
+        margin: 0;
+    }
+
+    span {
+        font-weight: 600;
+    }
+}
+
+.cart-card-text {
+    margin-top: 1rem;
+}
+
+.cart-buttons {
+    position: absolute;
+    bottom: 0.6rem;    right: 1rem
+}
+

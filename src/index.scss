@@ -1,6 +1,19 @@
-* {
-  margin: 0;  padding: 0;
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+}
+
+.App {
+  min-height: 101vh;
+  background-color: #063257;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: 'Outfit', sans-serif;
+  color: white;
 }
 
 body {
@@ -9,6 +22,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 code {
@@ -19,15 +34,13 @@ code {
 @font-face {
   font-family: "aAbsoluteEmpire";
   src: local("aAbsoluteEmpire"),
-  url("../public/assets/fonts/aAbsoluteEmpire.ttf") format("truetype");
+    url("../public/assets/fonts/aAbsoluteEmpire.ttf") format("truetype");
   font-weight: bold;
 }
 
 @font-face {
   font-family: "Deadly Advance";
   src: local("Deadly Advance"),
-  url("../public/assets/fonts/Deadly Advance.ttf") format("truetype");
+    url("../public/assets/fonts/Deadly Advance.ttf") format("truetype");
   font-weight: bold;
 }
-
-

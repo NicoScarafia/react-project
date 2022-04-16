@@ -3,6 +3,8 @@ import { CartContext } from '../context/CartContext'
 // Componentes
 import { Link } from 'react-router-dom'
 import CartItem from './CartItem'
+// Estilos
+import '../styles/Cart.scss'
 
 
 const Cart = () => {
