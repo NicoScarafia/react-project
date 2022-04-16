@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../context/CartContext'
-
 // Componentes
 import { Link } from 'react-router-dom'
 import CartItem from './CartItem'
@@ -20,7 +19,6 @@ const Cart = () => {
       </div>
     )
   }
-
 
   return (
 
@@ -50,9 +48,6 @@ const Cart = () => {
             Terminar compra
           </button>
         </Link>
-
-
-
 
       </div>
     </div>

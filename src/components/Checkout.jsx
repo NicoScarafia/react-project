@@ -3,18 +3,23 @@ import React, { useContext, useState } from 'react'
 import Swal from 'sweetalert2'
 // Context
 import { CartContext } from '../context/CartContext'
+import { AuthContext } from '../context/AuthContext'
 // RouterDom
-import { Navigate } from 'react-router-dom'
+import { Navigate, useNavigate, Link } from 'react-router-dom'
 // Firebase
-import { addDoc, collection, Timestamp } from 'firebase/firestore'
+import { addDoc, doc, collection, getDoc, Timestamp, updateDoc, writeBatch, query, where, documentId, getDocs } from 'firebase/firestore'
 import { db } from '../firebase/config'
 // Estilos
 import '../styles/Checkout.scss'
+import BotonesHomeNavigation from './BotonesHomeNavigation'
+
 
 
 const Checkout = () => {
 
-  const { cart, cartTotal, vaciarCarrito } = useContext(CartContext)
+  const { cart, cartTotal, vaciarCarrito, eliminarElemento } = useContext(CartContext)
+  const { currentUser } = useContext(AuthContext)
+
 
   const [values, setValues] = useState({
     nombre: '',
@@ -28,9 +33,7 @@ const Checkout = () => {
     })
   }
 
-  const [errorMsg, setErrorMsg] = useState(false)
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
     if (values.nombre === '' || values.email === '') {
@@ -38,6 +41,7 @@ const Checkout = () => {
     }
 
     if (values.nombre !== '' && values.email !== '') {
+
       const orden = {
         items: cart,
         total: cartTotal(),
@@ -45,24 +49,80 @@ const Checkout = () => {
         comprador: { values }
       }
 
+      // actualiza el stock de la base de datos
+      const batch = writeBatch(db)
       const ordersRef = collection(db, 'ordenes')
+      const productosRef = collection(db, 'productos')
 
-      addDoc(ordersRef, orden)
-        .then((doc) => {
-          vaciarCarrito()
-          Swal.fire({
-            title: 'Compra realizada',
-            html: `Tu compra ha sido realizada con éxito. Muchas gracias! <br>&#128516; <br> <br> <b>ID de orden: ${doc.id}</b>`,
-            icon: 'success',
-            confirmButtonText: 'Confirmar',
-            confirmButtonColor: 'seagreen',
+      const q = query(productosRef, where(documentId(), 'in', cart.map((item) => item.id)))
+
+      const productos = await getDocs(q)
+
+      const outOfStock = []
+
+      productos.docs.forEach((doc) => {
+        const itemInCart = cart.find((item) => item.id === doc.id)
+
+        if (doc.data().stock >= itemInCart.compra) {
+          batch.update(doc.ref, {
+            stock: doc.data().stock - itemInCart.compra
           })
+        } else {
+          outOfStock.push(itemInCart)
+        }
+      })
+
+      if (outOfStock.length === 0) {
+        batch.commit()
+        addDoc(ordersRef, orden)
+          .then((doc) => {
+            vaciarCarrito()
+            Swal.fire({
+              title: 'Compra realizada',
+              html: `Tu compra ha sido realizada con éxito. Muchas gracias! <br>&#128516; <br> <br> <b>ID de orden: ${doc.id}</b>`,
+              icon: 'success',
+              confirmButtonText: 'Confirmar',
+              confirmButtonColor: 'seagreen',
+            })
+          })
+          .catch((err) => { console.log(err) })
+      }
+
+      else {
+        const itemSinStock = outOfStock.map(item => item.nombre)
+        console.log(outOfStock.length)
+ 
+        // outOfStock.forEach(item => {
+        //   eliminarElemento(item.nombre)
+        // })
+
+        // for (let i = 0; i < outOfStock.length; i++) {
+        //   eliminarElemento(outOfStock[i].nombre)
+        // }
+
+        Swal.fire({
+          html: `No hay stock disponible para los siguientes items de tu carrito: <br> <b>${itemSinStock.join(`<br/>`)}</b> <br /> <br />
+          Para continuar, modifique las cantidades seleccionadas.`,
+          icon: 'warning',
+          confirmButtonText: 'Ok',
+          confirmButtonColor: 'indianred',
         })
-        .catch((err) => { console.log(err) })
+        .then((result) => {
+          if (result.isConfirmed) {
+            handleNavigate()
+          }
+        })
+      }
     }
   }
 
+  const [errorMsg, setErrorMsg] = useState(false)
 
+  const navigate = useNavigate()
+  const handleNavigate = () => { navigate(-1) }
+
+
+  
 
   if (cart.length === 0) {
     return <Navigate to='/' />
@@ -73,6 +133,10 @@ const Checkout = () => {
     <div className='checkout-container'>
 
       <h2>CHECKOUT</h2>
+
+      {
+        currentUser &&  <p>Logged in as: {currentUser.email}</p>
+      }
 
       <p>Ingresá tus datos para terminar la compra</p>
 
@@ -88,8 +152,7 @@ const Checkout = () => {
             name='nombre'
           />
           {
-            errorMsg && 
-            <small><i className="bi bi-x-lg"></i> Campo obligatorio</small>
+            errorMsg && <small><i className="bi bi-x-lg"></i> Campo obligatorio</small>
           }
 
           <input type="email"
@@ -109,6 +172,8 @@ const Checkout = () => {
 
         </form>
       </div>
+
+      <BotonesHomeNavigation />
 
     </div>
   )

@@ -38,6 +38,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                 </div>
+                <Link style={{marginRight: '2rem'}} to="/user">Usuario</Link>
                 <Link to="/cart"><CartWidget /></Link>
             </div>
 

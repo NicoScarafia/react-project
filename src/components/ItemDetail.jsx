@@ -3,6 +3,7 @@ import { CartContext } from '../context/CartContext'
 import { Link, useNavigate } from 'react-router-dom'
 
 import ItemCount from './ItemCount'
+import BotonesHomeNavigation from './BotonesHomeNavigation'
 
 const ItemDetail = ({ productDetail }) => {
 
@@ -25,7 +26,8 @@ const ItemDetail = ({ productDetail }) => {
             cover,
             precio,
             compra,
-            stock
+            stock,
+            id
         }
 
         addItem(ItemToAdd)
@@ -82,14 +84,7 @@ const ItemDetail = ({ productDetail }) => {
 
             </div>
 
-            <div className='mt-5'>
-                <button onClick={handleNavigate} className='m-2 mb-5 btn btn-primary'>
-                    Volver
-                </button>
-                <Link to="/" ><button className='m-2 mb-5 btn btn-primary'>
-                    Ir a la Home
-                </button></Link>
-            </div>
+            <BotonesHomeNavigation />
 
         </div>
 

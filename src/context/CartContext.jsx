@@ -3,7 +3,6 @@ import { createContext, useState } from 'react'
 export const CartContext = createContext()
 
 
-
 export const CustomCartProvider = ({children}) => {
 
     const [cart, setCart] = useState([])

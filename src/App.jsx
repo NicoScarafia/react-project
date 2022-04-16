@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CustomCartProvider } from './context/CartContext';
+import { AuthContextProvider } from './context/AuthContext';
 // Estilos
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.css'
@@ -16,6 +17,7 @@ import Footer from './components/Footer';
 import Error404 from './components/Error404';
 import Checkout from './components/Checkout';
 import HomePage from './pages/HomePage';
+import LogInRegister from './pages/LogInRegister';
 
 
 const App = () => {
@@ -25,6 +27,7 @@ const App = () => {
   return (
 
     <CustomCartProvider>
+      <AuthContextProvider>
       <div className='App'>
 
         <BrowserRouter>
@@ -37,9 +40,9 @@ const App = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="/productos" element={<ItemListContainer />} />
 
-            <Route path="/productos/:categoryId" element={
-              <ItemListContainer />}
-            />
+            <Route path="/user" element={<LogInRegister />} />
+
+            <Route path="/productos/:categoryId" element={ <ItemListContainer />}      />
 
             <Route path="detail/:itemId" element={<ItemDetailContainer />} />
 
@@ -57,6 +60,7 @@ const App = () => {
         </BrowserRouter>
 
       </div>
+      </AuthContextProvider>
     </CustomCartProvider>
 
   )

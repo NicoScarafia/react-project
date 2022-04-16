@@ -12,7 +12,6 @@ const CartItem = ({ item }) => {
         !editar ? setEditar(true) : setEditar(false)
     }
 
-
     return (
 
         <div className='cart-card'>

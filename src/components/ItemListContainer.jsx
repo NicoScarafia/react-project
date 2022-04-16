@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 // Firebase
-import { collection, getDocs, query, where, limit } from "firebase/firestore"
+import { collection, getDocs, query, where} from "firebase/firestore"
 import { db } from "../firebase/config"
 // Componentes
 import ItemList from './ItemList'
@@ -25,6 +25,7 @@ const ItemListContainer = () => {
         const productosRef = collection(db, "productos")
 
         const q = categoryId ? query(productosRef, where('categoria', '==', categoryId)) : productosRef
+        
 
         getDocs(q)
             .then( res => {
