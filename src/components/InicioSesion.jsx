@@ -1,13 +1,9 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../context/AuthContext'
-// Estilos
-import '../styles/UserForm.scss'
 
-
-const LogInRegister = () => {
+const InicioSesion = () => {
 
     const { loading,
-        currentUser,
         handleSubmit,
         campoVacio,
         weekPassword,
@@ -16,41 +12,17 @@ const LogInRegister = () => {
         emailnotFound,
         wrongPassword,
         handleLogIn,
-        handleLogOut,
         emailRef,
         passwordRef
     } = useContext(AuthContext)
 
-
-   if (currentUser) {
-        return (
-            <div className='session mx-auto text-center text-black'>
-                <h4>INICIASTE SESIÓN CON LA CUENTA</h4>
-
-                <div className='account card'>
-                    <img style={{ maxWidth: '6rem' }} src="../../assets/img/decorativas/user-account.png" alt="" />
-                    <p>{currentUser.email}</p>
-                </div>
-
-                <button
-                    onClick={handleLogOut}
-                    className='btn btn-sm btn-danger'>
-                    Cerrar Sesión
-                </button>
-            </div>
-        )
-    }
-    
     return (
-        <div className='user-form mx-auto text-center'>
 
-            <h2 className='mt-5'>REGISTRO / INICIO DE SESIÓN</h2>
+        <div className='d-flex'>
 
-            <div className='d-flex'>
+                <div className='mx-auto'>
 
-                <div className='mx-auto my-3'>
-
-                    <form onSubmit={handleSubmit} style={{ maxWidth: '40rem' }} className='form-control'>
+                    <form onSubmit={handleSubmit} style={{ maxWidth: '40rem', minHeight:'12rem' }} className='form-control d-flex flex-column justify-content-around'>
 
                         <input
                             ref={emailRef}
@@ -94,9 +66,7 @@ const LogInRegister = () => {
 
                 </div>
             </div>
-
-        </div>
     )
 }
 
-export default LogInRegister
+export default InicioSesion
