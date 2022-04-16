@@ -178,45 +178,45 @@ const Checkout = () => {
 
       <div className='d-flex justify-content-center'>
 
-        <div className='mx-5' style={{ maxWidth: '40rem'}}>
+        <div className='mx-5' style={{ maxWidth: '40rem' }}>
           <p>Accedé a tu cuenta</p>
           <InicioSesion />
         </div>
 
-        <div className='mx-5' style={{ maxWidth: '40rem'}} >
+        <div className='mx-5' style={{ maxWidth: '40rem' }} >
           <p>Continuá como invitado</p>
 
 
-          <form onSubmit={handleSubmit} style={ {minHeight:'12rem' }} className='form-control d-flex flex-column justify-content-around'>
+          <form onSubmit={handleSubmit} style={{ minHeight: '12rem' }} className='form-control d-flex flex-column justify-content-around'>
 
-              <input
-                type="text"
-                placeholder='Escribí tu nombre'
-                className='form-control my-2'
-                value={values.nombre}
-                onChange={handleChange}
-                name='nombre'
-              />
-              {
-                errorMsg && <small><i className="bi bi-x-lg"></i> Campo obligatorio</small>
-              }
+            <input
+              type="text"
+              placeholder='Escribí tu nombre'
+              className='form-control my-2'
+              value={values.nombre}
+              onChange={handleChange}
+              name='nombre'
+            />
+            {
+              errorMsg && <small><i className="bi bi-x-lg"></i> Campo obligatorio</small>
+            }
 
-              <input type="email"
-                placeholder='Escribí tu mail'
-                className='form-control my-2'
-                value={values.email}
-                onChange={handleChange}
-                name='email'
-              />
-              {
-                errorMsg && <small><i className="bi bi-x-lg"></i> Campo obligatorio</small>
-              }
+            <input type="email"
+              placeholder='Escribí tu mail'
+              className='form-control my-2'
+              value={values.email}
+              onChange={handleChange}
+              name='email'
+            />
+            {
+              errorMsg && <small><i className="bi bi-x-lg"></i> Campo obligatorio</small>
+            }
 
-              <div>
-                <button type='submit' className='btn btn-sm btn-success my-3'>Finalizar compra</button>
-              </div>
+            <div>
+              <button type='submit' className='btn btn-sm btn-success my-3'>Finalizar compra</button>
+            </div>
 
-            </form>
+          </form>
         </div>
       </div>
 

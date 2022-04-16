@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import CartWidget from './CartWidget'
 import '../styles/Navbar.scss'
 
-import CartWidget from './CartWidget'
 
 
 const Navbar = () => {
@@ -17,7 +17,7 @@ const Navbar = () => {
                 </Link>
 
                 <div className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a className="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Productos
                     </a>
                     <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
