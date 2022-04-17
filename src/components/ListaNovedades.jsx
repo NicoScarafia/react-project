@@ -12,6 +12,7 @@ const ListaNovedades = ({ show, title }) => {
 
     useEffect(() => {
         setCargando(true)
+        let unmounted = false;
 
         const q = show
 
@@ -30,11 +31,18 @@ const ListaNovedades = ({ show, title }) => {
                     return 0;
                 })
 
-                setListaProductos(items)
+                if (!unmounted) {
+                    setListaProductos(items)
+                }
             })
             .catch((err) => { console.log(err) })
-            .finally(() => setCargando(false))
+            .finally(() => {
+                if (!unmounted) {
+                    setCargando(false)
+                }
+            })
 
+        return () => { unmounted = true };
     }, [])
 
     return (
@@ -64,8 +72,6 @@ const ListaNovedades = ({ show, title }) => {
                     </div>
                 ))
             }
-
-
 
         </div>
     )

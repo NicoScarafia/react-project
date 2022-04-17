@@ -79,9 +79,9 @@ const Checkout = () => {
     else {
       const itemSinStock = outOfStock.map(item => item.nombre)
 
-      // outOfStock.forEach(item => {
-      //   eliminarElemento(item.nombre)
-      // })
+      outOfStock.forEach(item => {
+        eliminarElemento(item.nombre)
+      })
 
       // for (let i = 0; i < outOfStock.length; i++) {
       //   eliminarElemento(outOfStock[i].nombre)
