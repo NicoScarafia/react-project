@@ -47,32 +47,39 @@ const ListaNovedades = ({ show, title }) => {
 
     return (
 
-        <div className="new-arrivals">
-
-            <div className='category'>
+        <div className='mt-2'>
+            <div className='mobile-title'>
                 <h3>{title}</h3>
             </div>
 
-            {
-                cargando ? 
-                <Cargando />
-                : 
-                listaProductos.map((prod) => (
-                    <div key={prod.nombre} className='product-container'>
-                        <div className='product-card'>
-                            <img src={prod.cover} alt={`${prod.nombre} cover`} />
-                            <h4>{prod.nombre}</h4>
-                            <p className='price'>${prod.precio}</p>
+            <div className="new-arrivals">
 
-                            <Link to={`/detail/${prod.id}`}>
-                                <i className="bi bi-box-arrow-in-right"></i> Ver más
-                            </Link>
+                <div className='category'>
+                    <h3>{title}</h3>
+                </div>
 
+                {
+                    cargando ?
+                        <Cargando />
+                        :
+                        <div className="product-container">
+                            {listaProductos.map((prod) => (
+                                <div key={prod.nombre}>
+                                    <div className='product-card'>
+                                        <img src={prod.cover} alt={`${prod.nombre} cover`} />
+                                        <h4>{prod.nombre}</h4>
+                                        <p className='price'>${prod.precio}</p>
+
+                                        <Link to={`/detail/${prod.id}`}>
+                                            <i className="bi bi-box-arrow-in-right"></i> Ver más
+                                        </Link>
+
+                                    </div>
+                                </div>
+                            ))}
                         </div>
-                    </div>
-                ))
-            }
-
+                }
+            </div>
         </div>
     )
 }

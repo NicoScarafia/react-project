@@ -59,8 +59,8 @@ const PedidosRealizados = () => {
 
     if (listaOrdenes.length === 0) {
         return (
-            <div className='mt-5 card bg-danger'>
-                <p className='text-white fs-6 m-auto py-2'>Aún no realizaste pedidos</p>
+            <div className='mt-5 mx-auto card bg-light' style={{maxWidth: '15rem'}}>
+                <p className='fs-6 m-auto py-2'>Aún no realizaste pedidos</p>
             </div>
         )
     }

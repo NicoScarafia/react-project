@@ -8,7 +8,7 @@ const BotonesHomeNavigation = () => {
   const handleNavigate = () => { navigate(-1) }
 
   return (
-    <div>
+    <div className='d-flex justify-content-center'>
         <button onClick={handleNavigate} className='mt-5 mx-2 btn btn-sm btn-primary'>
           <i className="bi bi-arrow-bar-left"></i> Volver
         </button>

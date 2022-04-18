@@ -61,9 +61,10 @@ $main-color: #063257;
     .logo {
         display: flex;
         align-items: center;
+        margin: 0 0.5rem;
 
         img {
-            width: 2.6rem;
+            width: 2.3rem;
         }
 
         .logo-text {
@@ -73,7 +74,7 @@ $main-color: #063257;
             h1 {
                 display: flex;
                 flex-direction: column;
-                font-size: 2rem;
+                font-size: 1.85rem;
                 font-family: $brand-font;
 
                 span {
@@ -92,7 +93,7 @@ $main-color: #063257;
 .mobile-header {
     position: sticky;
     top: 0;
-    z-index: 1000000;
+    z-index: 1000;
 }
 
 .second-navbar {

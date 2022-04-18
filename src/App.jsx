@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CustomCartProvider } from './context/CartContext';
 import { AuthContextProvider } from './context/AuthContext';
@@ -18,6 +18,7 @@ import Checkout from './components/Checkout';
 import HomePage from './pages/HomePage';
 import UserPage from './pages/UserPage';
 import NavbarMobile from './components/NavbarMobile';
+import Header from './components/Header';
 
 
 const App = () => {
@@ -30,7 +31,8 @@ const App = () => {
 
           <BrowserRouter>
 
-            <Navbar />
+            <Header />
+            {/* <Navbar /> */}
             {/* <NavbarMobile /> */}
 
             <Routes>

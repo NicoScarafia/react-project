@@ -8,26 +8,8 @@ const Wrapper = styledComponents.div`
     transform: translateX( ${props => props.slideIndex * -100}vw );
 `
 
-const slides = [
-    {
-        id: 1,
-        imagen: '../../assets/img/slider/slider-justiceleague.jpg',
-        texto: 'The new 52',
-    },
-    {
-        id: 2,
-        imagen: '../../assets/img/slider/slider-jujutsu.jpg',
-        texto: 'Jujutsu Kaisen',
-    },
-    {
-        id: 3,
-        imagen: '../../assets/img/slider/slider-marvel.jpg',
-        texto: 'Marvel Comics',
-    }
-]
 
-
-const Slider = () => {
+const Slider = ({slides}) => {
 
     const [slideIndex, setSlideIndex] = useState(0)
 

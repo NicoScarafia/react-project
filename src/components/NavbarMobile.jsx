@@ -11,11 +11,11 @@ const NavbarMobile = () => {
     return (
 
         <header className='mobile-header'>
-            <div className='navbar d-flex justify-content-around align-items-center px-3'>
+            <div className='navbar d-flex justify-content-around align-items-center px-3 pt-1'>
 
                 <div>
                     <Link to="/user"><button type="button" className="btn btn-sm btn-light rounded-pill position-relative">
-                        <i class="bi bi-person-fill"></i>
+                        <i className="bi bi-person-fill"></i>
                     </button></Link>
                 </div>
 

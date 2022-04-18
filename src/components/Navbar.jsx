@@ -12,10 +12,6 @@ const Navbar = () => {
 
             <div className='nav-left'>
 
-                {/* <Link to="/acerca-de">
-                    Acerca de
-                </Link> */}
-
                 <div className="nav-item dropdown">
                     <a className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Productos
@@ -42,11 +38,6 @@ const Navbar = () => {
 
 
             <div className='nav-right'>
-
-                {/* <Link style={{ marginRight: '2.5rem' }} to="/user"><button type="button" className="btn btn-primary rounded-pill position-relative">
-                <i class="bi bi-person-fill"></i>
-                </button></Link> */}
-
                 <Link style={{ marginRight: '2.5rem' }} to="/user">Usuario</Link>
                 <Link to="/cart"><CartWidget /></Link>
             </div>

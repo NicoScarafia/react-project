@@ -9,6 +9,7 @@ import Cargando from './Cargando'
 import SearchForm from './SearchForm'
 // Estilos
 import '../styles/Catalogo.scss'
+import BotonesHomeNavigation from './BotonesHomeNavigation'
 
 
 const ItemListContainer = () => {
@@ -62,7 +63,7 @@ const ItemListContainer = () => {
 
     return (
         <div className='container'>
-            <h3 className='catalogo-titulo'>
+            <h3 className='catalogo-titulo fs-1'>
                 {categoryId ? `Catálogo de ${categoryId}` : 'Catálogo de Productos'}
             </h3>
 
@@ -76,6 +77,8 @@ const ItemListContainer = () => {
                 ? <Cargando /> 
                 : <ItemList listaProductos={listaProductos} search={search} />
             }
+
+            <BotonesHomeNavigation />
         </div>
     )
 }
