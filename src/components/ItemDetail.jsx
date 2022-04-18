@@ -38,10 +38,13 @@ const ItemDetail = ({ productDetail }) => {
 
         <div className='d-flex flex-column align-items-center justify-content-center'>
 
-            <div className="card text-dark" style={{ width: "700px" }}>
+            <div className="card p-4 text-dark mx-2" style={{ maxWidth: "700px" }}>
+
                 <div className="row g-0">
                     <div className="col-md-4">
-                        <img src={cover} className="img-fluid rounded-start" alt="..." />
+                        <img src={cover} alt={`${nombre} Cover`}
+                        className="img-fluid rounded" 
+                        style={{outline: '0.08rem solid gray'}}/>
                     </div>
                     <div className="col-md-8">
                         <div className="card-body">
@@ -67,21 +70,17 @@ const ItemDetail = ({ productDetail }) => {
                                 :
 
                                 <div className='mt-3'>
-                                    <button onClick={handleNavigate} className='btn mx-2 btn-sm btn-warning'>
+                                    <button onClick={handleNavigate} className='btn m-2 btn-sm btn-warning'>
                                         <i className="bi bi-bag-plus"></i> Continuar comprando
                                     </button>
                                     <Link to="/cart">
-                                        <button className='btn mx-2 btn-sm btn-primary'>
+                                        <button className='btn m-2 btn-sm btn-primary'>
                                             <i className="bi bi-cart-fill"></i> Ir al carrito</button>
                                     </Link>
                                 </div>
                         }
-
-
                     </div>
-
                 </div>
-
             </div>
 
             <BotonesHomeNavigation />

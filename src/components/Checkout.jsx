@@ -79,9 +79,9 @@ const Checkout = () => {
     else {
       const itemSinStock = outOfStock.map(item => item.nombre)
 
-      outOfStock.forEach(item => {
-        eliminarElemento(item.nombre)
-      })
+      // outOfStock.forEach(item => {
+      //   eliminarElemento(item.nombre)
+      // })
 
       // for (let i = 0; i < outOfStock.length; i++) {
       //   eliminarElemento(outOfStock[i].nombre)
@@ -104,12 +104,11 @@ const Checkout = () => {
 
   const compraUsuario = async () => {
     if (currentUser) {
-      const comprador = currentUser.email
       const orden = {
         items: cart,
         total: cartTotal(),
         fecha: Timestamp.fromDate(new Date()),
-        comprador: { comprador }
+        comprador: currentUser.email
       }
       await updateDatabase(orden)
     }
@@ -148,14 +147,14 @@ const Checkout = () => {
 
   if (currentUser) {
     return (
-      <div className="current-container">
+      <div className="current-container container">
 
         <h2>CHECKOUT</h2>
 
         <h4>Registrado como:</h4>
 
         <div className='card user'>
-          <img src="../../assets/img/decorativas/user-account.png" alt="" />
+          <img src="../../assets/img/decorativas/user-account.png" alt="Imagen de perfil genérica" />
           <p>{currentUser.email}</p>
           <div><button onClick={handleLogOut} className='btn btn-outline-danger btn-sm'>Cerrar sesión</button></div>
         </div>
@@ -176,18 +175,21 @@ const Checkout = () => {
 
       <h2>CHECKOUT</h2>
 
-      <div className='d-flex justify-content-center'>
+      <div className='checkout-options'>
 
-        <div className='mx-5' style={{ maxWidth: '40rem' }}>
+        <div className='mx-5'>
           <p>Accedé a tu cuenta</p>
           <InicioSesion />
         </div>
 
-        <div className='mx-5' style={{ maxWidth: '40rem' }} >
+        <div className='mx-5 d-flex flex-column align-items-center' style={{ maxWidth: '40rem' }} >
           <p>Continuá como invitado</p>
 
-
-          <form onSubmit={handleSubmit} style={{ minHeight: '12rem' }} className='form-control d-flex flex-column justify-content-around'>
+          <form
+            onSubmit={handleSubmit}
+            className='form-control d-flex flex-column justify-content-around'
+            style={{ minHeight: '12rem', maxWidth: '18rem' }}
+          >
 
             <input
               type="text"
@@ -209,11 +211,16 @@ const Checkout = () => {
               name='email'
             />
             {
-              errorMsg && <small><i className="bi bi-x-lg"></i> Campo obligatorio</small>
+              errorMsg && 
+              <small>
+                <i className="bi bi-x-lg"></i> Campo obligatorio
+              </small>
             }
 
             <div>
-              <button type='submit' className='btn btn-sm btn-success my-3'>Finalizar compra</button>
+              <button type='submit' className='btn btn-sm btn-success my-3'>
+                Finalizar compra
+              </button>
             </div>
 
           </form>

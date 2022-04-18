@@ -58,4 +58,18 @@
                 margin-right: 0.3rem;
             }
     }
+
+
+    .checkout-options {
+        display: flex;
+        justify-content: center;
+    }
+    
+    
+    @media screen and (max-width: 768px) {
+        .checkout-options {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
 }

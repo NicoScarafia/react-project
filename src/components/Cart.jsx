@@ -3,8 +3,6 @@ import { CartContext } from '../context/CartContext'
 // Componentes
 import { Link } from 'react-router-dom'
 import CartItem from './CartItem'
-// Estilos
-import '../styles/Cart.scss'
 
 
 const Cart = () => {
@@ -24,7 +22,7 @@ const Cart = () => {
 
   return (
 
-    <div className='text-center mt-5'>
+    <div className='text-center mt-5 container'>
 
       <h2 className='fw-bold'>CARRITO DE COMPRAS</h2>
 

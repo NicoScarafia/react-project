@@ -1,7 +1,118 @@
 $brand-font: Deadly Advance, 'sans-serif';
 $main-color: #063257;
 
+.sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 
+.navbar {
+    background-color: #fbb034;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 0;
+
+    a {
+        color: black;
+        text-decoration: none;
+    }
+
+    ul > li {
+        padding: 0.2rem 1rem;
+        font-weight: 500;
+    }
+
+    .nav-link {
+        color: black;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+
+        img {
+            width: 3.5rem;
+        }
+
+        .logo-text {
+            margin-top: 0.2rem;
+            text-align: center;
+
+            h1 {
+                display: flex;
+                flex-direction: column;
+                font-size: 2.35rem;
+                font-family: $brand-font;
+
+                span {
+                    font-size: 0.85rem;
+                    margin-top: -0.3rem;
+                    text-transform: uppercase;
+                    font-family: 'Outfit', sans-serif;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 560px) {
+.navbar {
+    .logo {
+        display: flex;
+        align-items: center;
+
+        img {
+            width: 2.6rem;
+        }
+
+        .logo-text {
+            margin-top: 0.2rem;
+            text-align: center;
+
+            h1 {
+                display: flex;
+                flex-direction: column;
+                font-size: 2rem;
+                font-family: $brand-font;
+
+                span {
+                    font-size: 0.8rem;
+                    margin-top: -0.3rem;
+                    text-transform: uppercase;
+                    font-family: 'Outfit', sans-serif;
+                }
+            }
+        }
+    }
+}
+}
+
+
+.mobile-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000000;
+}
+
+.second-navbar {
+    text-transform: uppercase;
+    padding: 0.3rem 0;
+    text-align: center;
+    background-color: #fbb034;
+    // border-top: 0.05rem solid gray;
+
+    a {
+        color: black;
+        text-decoration: none;
+        padding: 1rem 1rem;
+        font-weight: 500;
+        font-size: 0.8rem;
+    }
+
+}
+
+/*
 .navbar {
     background-color: #fbb034;
     padding: 0.2rem 5rem;
@@ -95,3 +206,4 @@ $main-color: #063257;
         }
     }
 }
+*/

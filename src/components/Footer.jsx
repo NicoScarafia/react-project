@@ -6,7 +6,7 @@ const Footer = () => {
 
   return (
 
-    <footer>
+    <footer className='text-left'>
         <small> © <span>Thrashed Comics.</span> Todos los derechos reservados.</small>
     </footer>
 

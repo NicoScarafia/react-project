@@ -8,16 +8,16 @@ import '../styles/Navbar.scss'
 const Navbar = () => {
     return (
 
-        <header className='navbar'>
+        <header className='sticky navbar d-flex justify-content-around align-items-center'>
 
             <div className='nav-left'>
 
-                <Link to="/acerca-de">
+                {/* <Link to="/acerca-de">
                     Acerca de
-                </Link>
+                </Link> */}
 
                 <div className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Productos
                     </a>
                     <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -42,7 +42,12 @@ const Navbar = () => {
 
 
             <div className='nav-right'>
-                <Link style={{marginRight:'2.5rem'}} to="/user">Usuario</Link>
+
+                {/* <Link style={{ marginRight: '2.5rem' }} to="/user"><button type="button" className="btn btn-primary rounded-pill position-relative">
+                <i class="bi bi-person-fill"></i>
+                </button></Link> */}
+
+                <Link style={{ marginRight: '2.5rem' }} to="/user">Usuario</Link>
                 <Link to="/cart"><CartWidget /></Link>
             </div>
 

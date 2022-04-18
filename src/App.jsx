@@ -17,6 +17,7 @@ import Checkout from './components/Checkout';
 // Pages
 import HomePage from './pages/HomePage';
 import UserPage from './pages/UserPage';
+import NavbarMobile from './components/NavbarMobile';
 
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
           <BrowserRouter>
 
             <Navbar />
+            {/* <NavbarMobile /> */}
 
             <Routes>
 

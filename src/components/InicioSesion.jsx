@@ -22,7 +22,7 @@ const InicioSesion = () => {
 
                 <div className='mx-auto'>
 
-                    <form onSubmit={handleSubmit} style={{ maxWidth: '40rem', minHeight:'12rem' }} className='form-control d-flex flex-column justify-content-around'>
+                    <form onSubmit={handleSubmit} style={{ maxWidth: '18rem', minHeight:'12rem' }} className='form-control d-flex flex-column justify-content-around'>
 
                         <input
                             ref={emailRef}

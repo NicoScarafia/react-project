@@ -1,13 +1,17 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../context/CartContext'
 
-const CartWidget = () => {
+const CartWidget = ( { small = false } ) => {
 
   const { cart, itemsInCart } = useContext(CartContext)
 
-
   return (
-    <button type="button" className="btn btn-danger rounded-pill position-relative">
+    <button 
+      type="button" 
+      className={`btn btn-danger rounded-pill position-relative 
+      ${ small && 'btn-sm' }`}
+    >
+
       <i className="bi bi-cart-fill"></i>
       {
         cart.length > 0 &&

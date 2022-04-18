@@ -61,10 +61,10 @@ const ItemListContainer = () => {
 
 
     return (
-        <div>
-            <h2 className='catalogo-titulo'>
+        <div className='container'>
+            <h3 className='catalogo-titulo'>
                 {categoryId ? `Catálogo de ${categoryId}` : 'Catálogo de Productos'}
-            </h2>
+            </h3>
 
             <SearchForm 
                 handleSubmit={handleSubmit} 
