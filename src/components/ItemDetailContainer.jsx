@@ -38,8 +38,8 @@ const ItemDetailContainer = () => {
             <div className='mt-5'>
                 {
                     cargando
-                        ? <Cargando />
-                        : <ItemDetail productDetail={productDetail} />
+                    ? <Cargando />
+                    : <ItemDetail productDetail={productDetail} />
                 }
             </div>
         </div>

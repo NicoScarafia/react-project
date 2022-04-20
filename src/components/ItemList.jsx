@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Item from './Item'
 
 
@@ -14,7 +14,7 @@ const ItemList = ({ listaProductos, search }) => {
                             prod.editorial.toLowerCase().includes(search.toLowerCase())
                 )
                 .map((product) => (
-                    <Item comic={product} key={product.id} />
+                    <Item product={product} key={product.id} />
                 ))}
             </div>
         </div>

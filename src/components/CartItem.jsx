@@ -3,7 +3,7 @@ import { CartContext } from '../context/CartContext'
 
 const CartItem = ({ item }) => {
 
-    const { nombre, cover, compra, precio, stock } = item
+    const { nombre, cover, compra, precio, stock, id } = item
 
     const { aumentarCantidad, disminuirCantidad, eliminarElemento } = useContext(CartContext)
 
@@ -15,13 +15,14 @@ const CartItem = ({ item }) => {
     return (
 
         <div
-            style={{ maxWidth: '500px', backgroundColor: 'whitesmoke', borderRadius: '10px'}}
+            style={{ maxWidth: '500px', backgroundColor: 'whitesmoke', borderRadius: '10px' }}
             className="card mb-3 mx-auto text-black">
 
             <div className="row g-0 pt-3 pb-2">
                 <div className="col-md-4" >
-                    <img src={cover} alt={`${nombre} Cover`} 
-                    style={{ maxHeight: '200px' }} className="img-fluid rounded" />
+                    <img src={cover} alt={`${nombre} Cover`}
+                        style={{ maxHeight: '200px' }} className="img-fluid rounded"
+                    />
                 </div>
                 <div className="col-md-8" >
                     <div className="card-body ml-0">
@@ -44,7 +45,7 @@ const CartItem = ({ item }) => {
                                     </button>
 
                                     <button
-                                        onClick={() => eliminarElemento(nombre)}
+                                        onClick={() => eliminarElemento(id)}
                                         className='btn btn-danger btn-sm mx-2'>
                                         <i className="bi bi-trash-fill"></i> Eliminar
                                     </button>
@@ -53,14 +54,14 @@ const CartItem = ({ item }) => {
                                 :
                                 <div className='d-flex justify-content-center'>
                                     <button
-                                        onClick={() => disminuirCantidad(nombre)}
+                                        onClick={() => disminuirCantidad(id)}
                                         className='btn btn-warning btn-sm mx-1'
                                     >
                                         -
                                     </button>
                                     <span style={{ width: '3rem' }} className='text-dark'>{compra} / {stock}</span>
                                     <button
-                                        onClick={() => aumentarCantidad(nombre)}
+                                        onClick={() => aumentarCantidad(id)}
                                         className='btn btn-warning btn-sm mx-1'
                                     >
                                         +

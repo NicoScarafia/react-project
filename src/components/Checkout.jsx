@@ -9,25 +9,26 @@ import { Navigate, useNavigate } from 'react-router-dom'
 // Firebase
 import { addDoc, collection, Timestamp, writeBatch, query, where, documentId, getDocs } from 'firebase/firestore'
 import { db } from '../firebase/config'
-// Estilos
-import '../styles/Checkout.scss'
-import '../styles/UserForm.scss'
 // Componentes
 import BotonesHomeNavigation from './BotonesHomeNavigation'
 import InicioSesion from './InicioSesion'
+// Estilos
+import '../styles/Checkout.scss'
+import '../styles/UserForm.scss'
 
 
 
 const Checkout = () => {
 
-  const { cart, cartTotal, vaciarCarrito, eliminarElemento } = useContext(CartContext)
+  const { cart, cartTotal, vaciarCarrito } = useContext(CartContext)
   const { currentUser, handleLogOut } = useContext(AuthContext)
-
 
   const [values, setValues] = useState({
     nombre: '',
     email: ''
   })
+
+  const [ comprando, setComprando ] = useState(false)
 
   const handleChange = (e) => {
     setValues({
@@ -37,6 +38,8 @@ const Checkout = () => {
   }
 
   const updateDatabase = async (orden) => {
+
+    setComprando(true)
 
     const batch = writeBatch(db)
     const ordersRef = collection(db, 'ordenes')
@@ -64,7 +67,6 @@ const Checkout = () => {
       batch.commit()
       addDoc(ordersRef, { orden })
         .then((doc) => {
-          vaciarCarrito()
           Swal.fire({
             title: 'Compra realizada',
             html: `Tu compra ha sido realizada con éxito. Muchas gracias! <br>&#128516; <br> <br> <b>ID de orden: ${doc.id}</b>`,
@@ -74,19 +76,13 @@ const Checkout = () => {
           })
         })
         .catch((err) => { console.log(err) })
+        .finally(() => vaciarCarrito())
     }
 
     else {
+      vaciarCarrito()
+
       const itemSinStock = outOfStock.map(item => item.nombre)
-
-      // outOfStock.forEach(item => {
-      //   eliminarElemento(item.nombre)
-      // })
-
-      // for (let i = 0; i < outOfStock.length; i++) {
-      //   eliminarElemento(outOfStock[i].nombre)
-      // }
-
       Swal.fire({
         html: `No hay stock disponible para los siguientes items de tu carrito: <br> <b>${itemSinStock.join(`<br/>`)}</b> <br /> <br />
         Para continuar, modifique las cantidades seleccionadas.`,
@@ -159,7 +155,11 @@ const Checkout = () => {
           <div><button onClick={handleLogOut} className='btn btn-outline-danger btn-sm'>Cerrar sesión</button></div>
         </div>
 
-        <button onClick={compraUsuario} className="btn btn-success">
+        <button 
+          onClick={compraUsuario} 
+          disabled={comprando}
+          className="btn btn-success"
+        >
           Finalizar compra
         </button>
 
@@ -211,14 +211,18 @@ const Checkout = () => {
               name='email'
             />
             {
-              errorMsg && 
+              errorMsg &&
               <small>
                 <i className="bi bi-x-lg"></i> Campo obligatorio
               </small>
             }
 
             <div>
-              <button type='submit' className='btn btn-sm btn-success my-3'>
+              <button 
+                type='submit' 
+                disabled={comprando}
+                className='btn btn-sm btn-success my-3'
+              >  
                 Finalizar compra
               </button>
             </div>

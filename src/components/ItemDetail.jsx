@@ -1,15 +1,18 @@
 import React, { useContext, useState } from 'react'
+// Context
 import { CartContext } from '../context/CartContext'
+// RouterDOM
 import { Link, useNavigate } from 'react-router-dom'
-
+// Componentes
 import ItemCount from './ItemCount'
 import BotonesHomeNavigation from './BotonesHomeNavigation'
+
 
 const ItemDetail = ({ productDetail }) => {
 
     const { id, nombre, cover, stock = 5, precio, editorial, categoria } = productDetail
 
-    const { cart, addItem, isInCart } = useContext(CartContext)
+    const { addItem, isInCart } = useContext(CartContext)
 
 
     const navigate = useNavigate()
@@ -55,7 +58,9 @@ const ItemDetail = ({ productDetail }) => {
                                 <p className='card-text'>Categoría: {categoria}</p>
                                 <p className='card-text'>Editorial: {editorial}</p>
                                 <p className="card-text">Precio: ${precio}</p>
-                                <p className="card-text">Stock disponible: {stock} unidades</p>
+                                {
+                                    stock > 0 && <p className="card-text">Stock disponible: {stock} unidades</p>
+                                }
                             </div>
                         </div>
 

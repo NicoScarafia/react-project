@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 
 const ItemCount = ({ stock = 5, compra, setCompra, agregarAlCarrito }) => {

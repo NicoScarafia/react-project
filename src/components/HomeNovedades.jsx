@@ -18,7 +18,7 @@ const HomeNovedades = () => {
 
         <div className='newproducts-container'>
 
-            <h2 className='mt-5'>NOVEDADES</h2>
+            <h2 className='my-5'>NOVEDADES</h2>
             <ListaNovedades title='comics' show={nuevosComics} />
             <ListaNovedades title='mangas' show={nuevosMangas} />
 

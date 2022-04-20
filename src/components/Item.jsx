@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Item = ({ comic }) => {
+const Item = ({ product }) => {
 
-  const { nombre, cover, precio, categoria, id, editorial } = comic
+  const { nombre, cover, precio, categoria, id, editorial } = product
 
   return (
 
-    <div className='comic-card'>
+    <div className='product-card'>
 
       <div className='img-div'>
         <img src={cover} alt={`Cover de ${nombre}`} />
@@ -18,7 +18,9 @@ const Item = ({ comic }) => {
       <p>Precio: ${precio}</p>
 
       <Link to={`/detail/${id}`}>
-        <button className='btn btn-sm btn-primary mt-2'>Ver más</button>
+        <button className='btn btn-sm btn-primary mt-2'> 
+          <i className="bi bi-box-arrow-in-right"></i> Ver más
+        </button>
       </Link>
 
     </div>

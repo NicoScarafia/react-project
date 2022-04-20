@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 // Firebase
-import { collection, query, where, getDocs } from "firebase/firestore"
+import { collection, query, where, getDocs, orderBy } from "firebase/firestore"
 import { db } from "../firebase/config"
 import { AuthContext } from '../context/AuthContext'
 // Componentes
@@ -24,9 +24,9 @@ const PedidosRealizados = () => {
         const getOrders = async () => {
 
             const ordersRef = collection(db, 'ordenes')
-            const ordenesUsuario = query(ordersRef, where('orden.comprador', '==', user))
+            const q = query(ordersRef, where('orden.comprador', '==', user), orderBy('orden.fecha'))
 
-            await getDocs(ordenesUsuario)
+            await getDocs(q)
                 .then(res => {
                     let ordenes = res.docs.map((doc) => (
                         {
@@ -35,6 +35,7 @@ const PedidosRealizados = () => {
                         }
                     ))
                     if (!unmounted) {
+                        // ordenes = ordenes.sort((a, b) => a.orden.fecha.seconds > b.orden.fecha.seconds)
                         setListaOrdenes(ordenes)
                     }
                 })

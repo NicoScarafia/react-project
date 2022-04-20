@@ -4,8 +4,8 @@ import Slider from '../components/Slider'
 import HomeNovedades from '../components/HomeNovedades'
 import VerTodo from '../components/VerTodo'
 import Newsletter from '../components/Newsletter'
-
-import { mobileSlides, webSlides } from '../data/data'
+// Data
+import { mobileSlides, webSlides } from '../data/slides'
 
 const HomePage = () => {
 
