@@ -13,7 +13,7 @@ const Navbar = () => {
             <div className='nav-left'>
 
                 <div className="nav-item dropdown">
-                    <button className="nav-link dropdown-toggle nav-button" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button className="nav-link dropdown-toggle nav-button" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                         Productos
                     </button>
                     <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
