@@ -39,14 +39,14 @@ const ItemDetail = ({ productDetail }) => {
 
     return (
 
-        <div className='d-flex flex-column align-items-center justify-content-center'>
+        <div className='d-flex flex-column px-2 align-items-center justify-content-center'>
 
-            <div className="card p-4 text-dark mx-2" style={{ maxWidth: "700px", backgroundColor:'whitesmoke' }}>
+            <div className="card p-4 text-dark mx-2 " style={{ maxWidth: "700px", backgroundColor:'whitesmoke' }}>
 
                 <div className="row g-0">
-                    <div className="col-md-4">
+                    <div className="col-md-4 col-8 mx-auto">
                         <img src={cover} alt={`${nombre} Cover`}
-                        className="img-fluid rounded" 
+                        className="img-fluid rounded sm-w-25" 
                         style={{outline: '0.08rem solid gray'}}/>
                     </div>
                     <div className="col-md-8">

@@ -83,7 +83,7 @@ const PedidosRealizados = () => {
                             el.orden.items.map((item) => (
                                 <div key={item.id} className="row g-0 px-4 my-1">
                                     <div className="col-md-2">
-                                        <img style={{maxHeight: '7rem'}} src={item.cover} className="img-fluid rounded-start" alt={`${item.nombre} Cover`} />
+                                        <img style={{maxHeight: '7rem'}} src={item.cover} className="img-fluid rounded" alt={`${item.nombre} Cover`} />
                                     </div>
                                     <div className="col-md-10">
                                         <div className="card-body py-2">

@@ -15,3 +15,9 @@ footer {
         }
     }
 }
+
+@media screen and (max-width: 560px) {
+    footer {
+        padding: 1rem 2rem !important;
+    }
+}

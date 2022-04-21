@@ -10,11 +10,11 @@ const VerTodo = () => {
       <h2>Catálogo</h2>
 
       <div className='vertodo-info'>
-        <img className='superman2-img' src='../../assets/img/decorativas/superman-flying.png' />
+        <img className='superman2-img no-select' src='../../assets/img/decorativas/superman-flying.png' alt='Imagen decorativa de Superman'/>
         <div className='link'>
           <Link to='/productos'>Ver todo el catálogo</Link>
         </div>
-        <img className='batman-img' src='../../assets/img/decorativas/batman.png' />
+        <img className='batman-img no-select' src='../../assets/img/decorativas/batman.png' alt='Imagen decorativa de Batman' />
       </div>
 
     </div>

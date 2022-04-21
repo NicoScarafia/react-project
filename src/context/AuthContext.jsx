@@ -32,6 +32,8 @@ export const AuthContextProvider = ( {children} ) => {
                 await createUserWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value)
                 setWeekPassword(false)
                 setMailInUse(false)
+                setEmailNotFound(false)
+                setWrongPassword(false)
             }
             catch (error) {
                 console.error(error.message)
@@ -57,6 +59,10 @@ export const AuthContextProvider = ( {children} ) => {
             setLoading(true)
             try {
                 await signInWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value)
+                setEmailNotFound(false)
+                setWrongPassword(false)
+                setMailInUse(false)
+                setCampoVacio(false)
             }
             catch (error) {
                 console.error(error.message)
