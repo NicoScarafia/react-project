@@ -5,7 +5,7 @@ const Cargando = () => {
     return (
 
         <div
-            style={{ width: '60%', minHeight: '19rem' }}
+            style={{ width: '70%', minHeight: '24rem' }}
             className="d-flex justify-content-center text-white align-items-center container">
 
             <div className="spinner-border" role="status">

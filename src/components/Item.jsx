@@ -1,30 +1,31 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+// Estilos
+import '../styles/Item.scss'
 
-const Item = ({ product }) => {
+const Item = ({ product, showCategory = true }) => {
 
-  const { nombre, cover, precio, categoria, id, editorial } = product
+  const { nombre, cover, precio, categoria, id } = product
 
   return (
-
-    <div className='product-card'>
+    <div key={nombre} className='product-card'>
 
       <div className='img-div'>
-        <img src={cover} alt={`Cover de ${nombre}`} />
+        <img src={cover} alt={`${nombre} cover`} />
       </div>
-      
-      <small className='category'>{categoria}</small>
-      <h5>{nombre}</h5>
-      <p>Precio: ${precio}</p>
+
+      {
+        showCategory && <small className='category'>{categoria}</small>
+      }
+
+      <h4>{nombre}</h4>
+      <p className='price'>${precio}</p>
 
       <Link to={`/detail/${id}`}>
-        <button className='btn btn-sm btn-primary mt-2'> 
-          <i className="bi bi-box-arrow-in-right"></i> Ver más
-        </button>
+        <i className="bi bi-box-arrow-in-right"></i> Ver más
       </Link>
 
     </div>
-
   )
 }
 

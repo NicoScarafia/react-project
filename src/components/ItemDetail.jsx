@@ -41,7 +41,7 @@ const ItemDetail = ({ productDetail }) => {
 
         <div className='d-flex flex-column align-items-center justify-content-center'>
 
-            <div className="card p-4 text-dark mx-2" style={{ maxWidth: "700px" }}>
+            <div className="card p-4 text-dark mx-2" style={{ maxWidth: "700px", backgroundColor:'whitesmoke' }}>
 
                 <div className="row g-0">
                     <div className="col-md-4">

@@ -25,7 +25,6 @@ const App = () => {
   return (
 
     <div className="App">
-
       <CustomCartProvider>
         <AuthContextProvider>
           <BrowserRouter>

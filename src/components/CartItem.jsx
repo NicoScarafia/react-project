@@ -16,16 +16,15 @@ const CartItem = ({ item }) => {
 
         <div
             style={{ maxWidth: '500px', backgroundColor: 'whitesmoke', borderRadius: '10px' }}
-            className="card mb-3 mx-auto text-black">
+            className="card my-4 mx-auto text-black py-2">
 
-            <div className="row g-0 pt-3 pb-2">
+            <div className="row g-0 m-2">
                 <div className="col-md-4" >
                     <img src={cover} alt={`${nombre} Cover`}
-                        style={{ maxHeight: '200px' }} className="img-fluid rounded"
-                    />
+                        style={{ maxHeight: '200px' }} className="img-fluid rounded"/>
                 </div>
                 <div className="col-md-8" >
-                    <div className="card-body ml-0">
+                    <div className="card-body px-auto">
                         <h5 className="card-title fw-bold text-uppercase">
                             {nombre}
                         </h5>
@@ -53,13 +52,18 @@ const CartItem = ({ item }) => {
 
                                 :
                                 <div className='d-flex justify-content-center'>
+
                                     <button
                                         onClick={() => disminuirCantidad(id)}
                                         className='btn btn-warning btn-sm mx-1'
                                     >
                                         -
                                     </button>
-                                    <span style={{ width: '3rem' }} className='text-dark'>{compra} / {stock}</span>
+
+                                    <span style={{ width: '3rem' }} className='text-dark'>
+                                        {compra} / {stock}
+                                    </span>
+                                    
                                     <button
                                         onClick={() => aumentarCantidad(id)}
                                         className='btn btn-warning btn-sm mx-1'

@@ -5,6 +5,7 @@ import '../styles/Slider.scss'
 
 const Wrapper = styledComponents.div`
     display: flex;
+    transition: all 0.8s ease-out;
     transform: translateX( ${props => props.slideIndex * -100}vw );
 `
 

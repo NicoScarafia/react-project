@@ -16,7 +16,7 @@
     .info-container {
         position: absolute;
         bottom: 0;
-        width: 100%;
+        width: 100vw;
         height: 12rem;
         padding: 1rem 3rem;
 
@@ -76,6 +76,24 @@
 
             &:hover{
                 background-color: lighten(orange, 10%);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .slider-container {
+        .arrows-container {
+            .btn-izq {
+                position: absolute;
+                left: 1.2rem;
+                top: 45%;
+            }
+    
+            .btn-der {
+                position: absolute;
+                right: 1.2rem;
+                top: 45%;
             }
         }
     }

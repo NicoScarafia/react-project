@@ -15,6 +15,7 @@ import InicioSesion from './InicioSesion'
 // Estilos
 import '../styles/Checkout.scss'
 import '../styles/UserForm.scss'
+import CheckoutForm from './CheckoutForm'
 
 
 
@@ -25,10 +26,13 @@ const Checkout = () => {
 
   const [values, setValues] = useState({
     nombre: '',
-    email: ''
+    email: '',
+    emailconfirm: '',
+    tel: ''
   })
+  console.log(values)
 
-  const [ comprando, setComprando ] = useState(false)
+  const [comprando, setComprando] = useState(false)
 
   const handleChange = (e) => {
     setValues({
@@ -117,7 +121,11 @@ const Checkout = () => {
       setErrorMsg(true)
     }
 
-    if (values.nombre !== '' && values.email !== '') {
+    if (values.email !== values.emailconfirm) {
+      setDifferentEmail(true)
+    }
+
+    if (values.nombre !== '' && values.email !== '' && values.email === values.emailconfirm) {
       const orden = {
         items: cart,
         total: cartTotal(),
@@ -129,6 +137,7 @@ const Checkout = () => {
   }
 
   const [errorMsg, setErrorMsg] = useState(false)
+  const [differentEmail, setDifferentEmail] = useState(false)
 
   const navigate = useNavigate()
   const handleNavigate = () => { navigate(-1) }
@@ -155,8 +164,8 @@ const Checkout = () => {
           <div><button onClick={handleLogOut} className='btn btn-outline-danger btn-sm'>Cerrar sesión</button></div>
         </div>
 
-        <button 
-          onClick={compraUsuario} 
+        <button
+          onClick={compraUsuario}
           disabled={comprando}
           className="btn btn-success"
         >
@@ -184,50 +193,12 @@ const Checkout = () => {
 
         <div className='mx-5 d-flex flex-column align-items-center' style={{ maxWidth: '40rem' }} >
           <p>Continuá como invitado</p>
-
-          <form
-            onSubmit={handleSubmit}
-            className='form-control d-flex flex-column justify-content-around'
-            style={{ minHeight: '12rem', maxWidth: '18rem' }}
-          >
-
-            <input
-              type="text"
-              placeholder='Escribí tu nombre'
-              className='form-control my-2'
-              value={values.nombre}
-              onChange={handleChange}
-              name='nombre'
-            />
-            {
-              errorMsg && <small><i className="bi bi-x-lg"></i> Campo obligatorio</small>
+          <CheckoutForm 
+            props = {
+              { handleSubmit, handleChange, values, errorMsg, differentEmail, comprando }
             }
-
-            <input type="email"
-              placeholder='Escribí tu mail'
-              className='form-control my-2'
-              value={values.email}
-              onChange={handleChange}
-              name='email'
-            />
-            {
-              errorMsg &&
-              <small>
-                <i className="bi bi-x-lg"></i> Campo obligatorio
-              </small>
-            }
-
-            <div>
-              <button 
-                type='submit' 
-                disabled={comprando}
-                className='btn btn-sm btn-success my-3'
-              >  
-                Finalizar compra
-              </button>
-            </div>
-
-          </form>
+          />
+          
         </div>
       </div>
 

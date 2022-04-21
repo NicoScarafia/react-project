@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { getDocs } from "firebase/firestore"
-import { Link } from 'react-router-dom'
 import Cargando from './Cargando'
+import Item from './Item'
 
 const ListaNovedades = ({ show, title }) => {
 
@@ -46,35 +46,18 @@ const ListaNovedades = ({ show, title }) => {
 
     return (
 
-        <div className='mt-2'>
-            <div className='mobile-title'>
-                <h3>{title}</h3>
-            </div>
+        <div>
+            <div className='mobile-title'><h3>{title}</h3></div>
 
             <div className="new-arrivals">
-
-                <div className='category'>
-                    <h3>{title}</h3>
-                </div>
-
+                <div className='category'><h3>{title}</h3></div>
                 {
                     cargando ?
                         <Cargando />
                         :
                         <div className="product-container">
                             {listaProductos.map((prod) => (
-                                <div key={prod.nombre}>
-                                    <div className='product-card'>
-                                        <img src={prod.cover} alt={`${prod.nombre} cover`} />
-                                        <h4>{prod.nombre}</h4>
-                                        <p className='price'>${prod.precio}</p>
-
-                                        <Link to={`/detail/${prod.id}`}>
-                                            <i className="bi bi-box-arrow-in-right"></i> Ver más
-                                        </Link>
-
-                                    </div>
-                                </div>
+                                <Item key={prod.id} product={prod} showCategory={false} />
                             ))}
                         </div>
                 }

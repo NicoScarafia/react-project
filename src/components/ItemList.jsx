@@ -7,7 +7,7 @@ const ItemList = ({ listaProductos, search }) => {
     return (
 
         <div>
-            <div className='mx-auto comic-list container'>
+            <div className='mx-auto my-5 container d-flex justify-content-evenly flex-wrap' style={{maxWidth: '60rem'}}>
                 {
                 listaProductos.filter(
                     prod => prod.nombre.toLowerCase().includes(search.toLowerCase()) ||

@@ -54,20 +54,11 @@
         position: relative;
         height: 30rem;
 
-
-        .superman-img {
-            position: absolute;
-            top: 0;
-            left: -25rem;
-            pointer-events: none;
-            width: 30rem;
-            overflow-x: hidden;
-        }
         
         .superman2-img {
             position: absolute;
             overflow-x: hidden;
-            bottom: -3rem;
+            bottom: -4rem;
             left: -23rem;
             pointer-events: none;
             width: 18rem;
@@ -75,7 +66,7 @@
         }
 
         .batman-img {
-            width: 30rem;
+            width: 28rem;
             position: absolute; bottom: 0;
             overflow-x: hidden;
             z-index: 2;
