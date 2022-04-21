@@ -28,7 +28,7 @@ const ItemDetailContainer = () => {
                 setProductDetail(prod)
             })
             .finally(() => { setCargando(false) })
-    }, [])
+    }, [itemId])
 
 
     return (

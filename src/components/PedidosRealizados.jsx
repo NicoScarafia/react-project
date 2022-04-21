@@ -48,7 +48,7 @@ const PedidosRealizados = () => {
         }
         getOrders()
         return () => { unmounted = true };
-    }, [])
+    }, [user])
 
 
 

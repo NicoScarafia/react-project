@@ -42,7 +42,7 @@ const ListaNovedades = ({ show, title }) => {
             })
 
         return () => { unmounted = true };
-    }, [])
+    }, [show])
 
     return (
 

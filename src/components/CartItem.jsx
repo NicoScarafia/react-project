@@ -15,7 +15,7 @@ const CartItem = ({ item }) => {
     return (
 
         <div
-            style={{ maxWidth: '500px', backgroundColor: 'whitesmoke', borderRadius: '10px' }}
+            style={{ width: '500px',  maxWidth: '85%', backgroundColor: 'whitesmoke', borderRadius: '10px' }}
             className="card my-4 mx-auto text-black py-2">
 
             <div className="row g-0 m-2">

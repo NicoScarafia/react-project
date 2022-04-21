@@ -30,7 +30,7 @@ const Slider = ({slides}) => {
                 : setSlideIndex(0)
         }, 4000);
         return () => clearInterval(interval);
-    }, [slideIndex]);
+    }, [slideIndex, slides.length]);
 
 
     return (
