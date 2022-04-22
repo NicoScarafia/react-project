@@ -5,51 +5,18 @@ import { db } from "../firebase/config"
 import { AuthContext } from '../context/AuthContext'
 // Componentes
 import Cargando from './Cargando'
+import useCollection from '../customHooks/useCollections'
 
 
 const PedidosRealizados = () => {
 
     const { currentUser } = useContext(AuthContext)
-
     const user = currentUser.email
 
-    const [listaOrdenes, setListaOrdenes] = useState([])
-    const [cargando, setCargando] = useState(false)
+    const ordersRef = collection(db, 'ordenes')
+    const q = query(ordersRef, where('orden.comprador', '==', user), orderBy('orden.fecha'))
 
-
-    useEffect(() => {
-        setCargando(true)
-        let unmounted = false 
-
-        const getOrders = async () => {
-
-            const ordersRef = collection(db, 'ordenes')
-            const q = query(ordersRef, where('orden.comprador', '==', user), orderBy('orden.fecha'))
-
-            await getDocs(q)
-                .then(res => {
-                    let ordenes = res.docs.map((doc) => (
-                        {
-                            ...doc.data(),
-                            id: doc.id
-                        }
-                    ))
-                    if (!unmounted) {
-                        // ordenes = ordenes.sort((a, b) => a.orden.fecha.seconds > b.orden.fecha.seconds)
-                        setListaOrdenes(ordenes)
-                    }
-                })
-                .catch((err) => { console.error(err) })
-                .finally(() => {
-                    if(!unmounted) {
-                        setCargando(false)
-                    }
-                })
-        }
-        getOrders()
-        return () => { unmounted = true };
-    }, [user])
-
+    const {cargando, data: listaOrdenes} = useCollection(q)
 
 
     if (cargando) {

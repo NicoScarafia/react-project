@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../context/AuthContext'
+import SmallMsg from './SmallMsg'
 
 const InicioSesion = () => {
 
@@ -33,9 +34,9 @@ const InicioSesion = () => {
                             type="email"
                             placeholder='E-mail'
                         />
-                        {campoVacio && <small><i className="bi bi-x-lg"></i> Campo obligatorio</small>}
-                        {mailInUse && <small><i className="bi bi-x-lg"></i> El email ya está en uso</small>}
-                        {emailnotFound && <small><i className="bi bi-x-lg"></i> El email no pertenece a un usuario registrado</small>}
+                        {campoVacio && <SmallMsg texto='Campo obligatorio' />}
+                        {mailInUse && <SmallMsg texto='El email ya está en uso' />}
+                        {emailnotFound && <SmallMsg texto= 'El email no pertenece a un usuario registrado' />}
 
                         <input
                             ref={passwordRef}
@@ -43,9 +44,9 @@ const InicioSesion = () => {
                             type="password"
                             placeholder='Contraseña'
                         />
-                        {campoVacio && <small><i className="bi bi-x-lg"></i> Campo obligatorio</small>}
-                        {weekPassword && <small><i className="bi bi-x-lg"></i> La contraseña debe tener un mínimo de 6 caracteres</small>}
-                        {wrongPassword && <small><i className="bi bi-x-lg"></i> La contraseña es incorrecta</small>}
+                        {campoVacio && <SmallMsg texto='Campo obligatorio' />}
+                        {weekPassword && <SmallMsg texto='La contraseña debe tener un mínimo de 6 caracteres' />}
+                        {wrongPassword && <SmallMsg texto='La contraseña es incorrecta' />}
 
                         <div className='my-2'>
 

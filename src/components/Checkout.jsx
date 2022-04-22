@@ -30,7 +30,6 @@ const Checkout = () => {
     emailconfirm: '',
     tel: ''
   })
-  console.log(values)
 
   const [comprando, setComprando] = useState(false)
 

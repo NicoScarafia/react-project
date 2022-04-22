@@ -3,45 +3,27 @@ import { useParams } from 'react-router-dom'
 // Estilos
 import '../styles/Catalogo.scss'
 // Firebase
-import { collection, getDocs, orderBy, query, where} from "firebase/firestore"
+import { collection, orderBy, query, where} from "firebase/firestore"
 import { db } from "../firebase/config"
 // Componentes
 import ItemList from './ItemList'
 import Cargando from './Cargando'
 import SearchForm from './SearchForm'
 import BotonesHomeNavigation from './BotonesHomeNavigation'
+import useCollection from '../customHooks/useCollections'
 
 
 const ItemListContainer = () => {
 
-    const [listaProductos, setListaProductos] = useState([])
-
-    const [cargando, setCargando] = useState(false)
-
     const {categoryId} = useParams()
 
-    useEffect(() => {
-        setCargando(true)
+    const productosRef = collection(db, "productos")
+    const q = 
+        categoryId 
+        ? query(productosRef, orderBy('nombre'), where('categoria', '==', categoryId)) 
+        : query(productosRef, orderBy('nombre'))
 
-        const productosRef = collection(db, "productos")
-
-        const q = categoryId ? query(productosRef, orderBy('nombre'), where('categoria', '==', categoryId)) : query(productosRef, orderBy('nombre'))
-
-        getDocs(q)
-            .then( res => {
-                let items = res.docs.map( (doc) => (
-                    { 
-                        id: doc.id,
-                        ...doc.data()
-                    }
-                ))
-                
-                setListaProductos(items)
-            })
-            .catch( (err) => {console.log(err)} ) 
-            .finally( () => setCargando(false) )
-
-    }, [categoryId])
+    const {cargando, data: listaProductos} = useCollection(q, categoryId)
 
 
     // Search Form

@@ -4,6 +4,7 @@ import { addDoc, collection } from 'firebase/firestore'
 import { db } from '../firebase/config'
 // Estilos
 import '../styles/Newsletter.scss'
+import SmallMsg from './SmallMsg'
 
 
 const Newsletter = () => {
@@ -52,15 +53,11 @@ const Newsletter = () => {
                 <button type='submit'>Enviar</button>
                 {
                     error && 
-                    <small className='error'>
-                        <i className="bi bi-x-lg"></i>Ingrese su dirección de mail
-                    </small>
+                    <SmallMsg texto='Ingrese su dirección de mail' />
                 }
                 {
                     suscripto &&
-                    <small className='success'>
-                        <i className="bi bi-check-lg"></i>Te suscribiste con éxito
-                    </small>
+                    <SmallMsg texto='Te suscribiste con éxito' color='seagreen' icon='bi bi-check-lg' />
                 }
             </form>
 

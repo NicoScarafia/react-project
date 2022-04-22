@@ -1,4 +1,5 @@
 import React from 'react'
+import SmallMsg from './SmallMsg'
 
 const CheckoutForm = ({props}) => {
 
@@ -28,7 +29,7 @@ const CheckoutForm = ({props}) => {
                 name='nombre'
             />
             {
-                errorMsg && <small><i className="bi bi-x-lg"></i> Campo obligatorio</small>
+                errorMsg && <SmallMsg texto='Campo obligatorio' />
             }
 
             <input type="email"
@@ -39,10 +40,7 @@ const CheckoutForm = ({props}) => {
                 className='form-control my-2'
             />
             {
-                errorMsg &&
-                <small>
-                    <i className="bi bi-x-lg"></i> Campo obligatorio
-                </small>
+                errorMsg && <SmallMsg texto='Campo obligatorio' />
             }
 
             <input
@@ -54,7 +52,7 @@ const CheckoutForm = ({props}) => {
                 className='form-control my-2'
             />
             {
-                differentEmail && <small><i className="bi bi-x-lg"></i> Los email no coinciden</small>
+                differentEmail &&  <SmallMsg texto='Los email no coinciden' />
             }
 
             {/* no es un campo obligatorio */}

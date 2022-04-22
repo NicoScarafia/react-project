@@ -1,49 +1,14 @@
-import React, { useState, useEffect } from 'react'
-import { getDocs } from "firebase/firestore"
+import React from 'react'
+// Componentes
 import Cargando from './Cargando'
 import Item from './Item'
+// CustomHook
+import useCollection from '../customHooks/useCollections'
 
-const ListaNovedades = ({ show, title }) => {
+const ListaNovedades = ({ q, title }) => {
 
-    const [listaProductos, setListaProductos] = useState([])
-    const [cargando, setCargando] = useState(false)
-
-
-    useEffect(() => {
-        setCargando(true)
-        let unmounted = false;
-
-        const q = show
-
-        getDocs(q)
-            .then(res => {
-                let items = res.docs.map((doc) => (
-                    {
-                        id: doc.id,
-                        ...doc.data()
-                    }
-                ))
-
-                items = items.sort((a, b) => {
-                    if (a.nombre < b.nombre) { return -1 }
-                    if (a.nombre > b.nombre) { return 1 }
-                    return 0;
-                })
-
-                if (!unmounted) {
-                    setListaProductos(items)
-                }
-            })
-            .catch((err) => { console.log(err) })
-            .finally(() => {
-                if (!unmounted) {
-                    setCargando(false)
-                }
-            })
-
-        return () => { unmounted = true };
-    }, [show])
-
+    const {cargando, data: listaProductos} = useCollection(q)
+    
     return (
 
         <div>
