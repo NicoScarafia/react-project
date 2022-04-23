@@ -8,8 +8,8 @@ const About = () => {
 
             <h2 className='mt-5'>ACERCA DE</h2>
 
-            <p className='main-text'> 
-            <img className='logo' src="../../assets/img/iconos/thrashed-logo-blanco.png" alt="Thrashed Logo" /> es un e-commerce ficticio, desarrollado por <span>Nicolás Scarafia</span>, como proyecto final para el curso de <span>ReactJS</span> de Coderhouse.
+            <p className='main-text'>
+                <img className='logo' src="../../assets/img/iconos/thrashed-logo-blanco.png" alt="Thrashed Logo" /> es un e-commerce ficticio, desarrollado por <span>Nicolás Scarafia</span>, como proyecto final para el curso de <span>ReactJS</span> de Coderhouse.
             </p>
 
             <div className='images-container'>
@@ -19,8 +19,9 @@ const About = () => {
                 <img src="../../assets/img/iconos/bootstrap.png" alt="Logo Bootstrap" />
             </div>
 
-            <p className='description'>
-                Para realizar el sitio:
+            <div className='description'>
+                <p>Para realizar el sitio:</p>
+
                 <ol>
                     <li>Hice uso de los <span>Hooks propios de React</span> ( useState(), useEffect, useRef(), etc. ).</li>
                     <li>Prioricé la <span>reutilización de componentes</span>. De esta manera, las listas de novedades utilizan el mismo componente, lo mismo sucede con los slider o con las tarjetas de productos, entre otros. Sólo cambia la información que se le pasa por props. </li>
@@ -33,17 +34,16 @@ const About = () => {
                     <li>Me valí del <span>renderizado condicional</span>. Así, dependiendo de un estado determinado se muestran algunos componentes u otros. Por ejemplo: la página de Usuario, en el caso de que no haya un usuario loggeado, mostrará el registro/inicio de sesión y, en cambio, de haber usuario loggeado, mostrará los pedidos que éste realizó. También lo utilicé para renderizar componentes dependiendo del ancho del viewport; por ejemplo, en la versión mobile los componentes Navbar y Slider son distintos a los mostrados en desktop.</li>
                     <li>En cuanto a los estilos, están realizados con <span>Boostrap 5 y SASS</span> y es complemente responsive.</li>
                 </ol>
-
-            </p>
+            </div>
 
             <div className='mb-4'>
                 <p className='main-text'>Para más información:</p>
 
-                <a className='btn btn-dark mx-2' target='_blank' href="https://github.com/NicoScarafia/react-project">
+                <a className='btn btn-dark mx-2' target='_blank' rel="noreferrer" href="https://github.com/NicoScarafia/react-project">
                     <i className="bi bi-github"></i> Ver Código
                 </a>
 
-                <a className='btn btn-primary mx-2' target='_blank' href="https://www.linkedin.com/in/nicolas-scarafia/">
+                <a className='btn btn-primary mx-2' target='_blank' rel="noreferrer" href="https://www.linkedin.com/in/nicolas-scarafia/">
                     <i className="bi bi-linkedin"></i> LinkedIn
                 </a>
             </div>

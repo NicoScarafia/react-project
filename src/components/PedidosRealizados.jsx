@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 // Firebase
-import { collection, query, where, getDocs, orderBy } from "firebase/firestore"
+import { collection, query, where, orderBy } from "firebase/firestore"
 import { db } from "../firebase/config"
 import { AuthContext } from '../context/AuthContext'
 // Componentes
