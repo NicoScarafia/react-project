@@ -1,6 +1,9 @@
 import React, { useContext, useState } from 'react'
 // Sweet Alert
 import Swal from 'sweetalert2'
+// Estilos
+import '../styles/Checkout.scss'
+import '../styles/UserForm.scss'
 // Context
 import { CartContext } from '../context/CartContext'
 import { AuthContext } from '../context/AuthContext'
@@ -12,9 +15,6 @@ import { db } from '../firebase/config'
 // Componentes
 import BotonesHomeNavigation from './BotonesHomeNavigation'
 import InicioSesion from './InicioSesion'
-// Estilos
-import '../styles/Checkout.scss'
-import '../styles/UserForm.scss'
 import CheckoutForm from './CheckoutForm'
 
 
@@ -88,7 +88,7 @@ const Checkout = () => {
       const itemSinStock = outOfStock.map(item => item.nombre)
       Swal.fire({
         html: `No hay stock disponible para los siguientes items de tu carrito: <br> <b>${itemSinStock.join(`<br/>`)}</b> <br /> <br />
-        Para continuar, modifique las cantidades seleccionadas.`,
+        Para continuar, modifique las cantidades seleccionadas e intente nuevamente.`,
         icon: 'warning',
         confirmButtonText: 'Ok',
         confirmButtonColor: 'indianred',

@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 // Estilos
 import '../styles/Catalogo.scss'
 // Firebase
 import { collection, orderBy, query, where} from "firebase/firestore"
 import { db } from "../firebase/config"
+// CustomHook
+import useCollection from '../customHooks/useCollections'
 // Componentes
 import ItemList from './ItemList'
 import Cargando from './Cargando'
 import SearchForm from './SearchForm'
 import BotonesHomeNavigation from './BotonesHomeNavigation'
-import useCollection from '../customHooks/useCollections'
 
 
 const ItemListContainer = () => {

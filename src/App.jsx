@@ -18,6 +18,7 @@ import Cart from './components/Cart';
 import Footer from './components/Footer';
 import Error404 from './components/Error404';
 import Checkout from './components/Checkout';
+import About from './components/About';
 
 
 const App = () => {
@@ -43,6 +44,8 @@ const App = () => {
 
               <Route path="/cart" element={<Cart />} />
               <Route path="/checkout" element={<Checkout />} />
+              
+              <Route path="/about" element={<About />} />
 
               <Route path="*" element={<Error404 />} />
 

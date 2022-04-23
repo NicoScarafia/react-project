@@ -13,8 +13,8 @@ const Cart = () => {
   if (cart.length === 0) {
     return (
       <div className='text-center mt-5'>
-        <h2 className='fw-bold'>CARRITO DE COMPRAS</h2>
-        <p>Aún no tenés productos en tu carrito</p>
+        <h2 className='fw-bold mb-5'>CARRITO DE COMPRAS</h2>
+        <p className='fs-5'>Aún no tenés productos en tu carrito</p>
         <Link to="/" ><button className='mt-5 btn btn-primary'>Ir a la Home</button></Link>
       </div>
     )

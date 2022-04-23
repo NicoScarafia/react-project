@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import CartWidget from './CartWidget'
+// Estilos
 import '../styles/Navbar.scss'
 
 
