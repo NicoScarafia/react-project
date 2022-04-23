@@ -3,11 +3,16 @@
 
 #### Thrashed Comics es *e-commerce de comics y mangas* realizado con React JS. Utiliza Firebase como base de datos de los productos listados y para la autenticación de usuarios. Los estilos fueron creados con Boostrap 5 y SASS.
 
-![Demo del sitio](gif.gif)
+<br />
+
+<p align="center">
+  <img alt="Demo del sitio" src="gif.gif">
+</p>
 
 
-### :rocket: Para navegar en la web hosteada, hacé click: [Thrashed Comics](https://thrashed-comics.netlify.app).
+ ### <p align="center"> :rocket: Para navegar en la web hosteada, hacé click: [Thrashed Comics](https://thrashed-comics.netlify.app). </p>
 
+<br />
 <hr />
 
 :information_source: Detalles
@@ -26,4 +31,5 @@
 
 <hr />
 
-### :speech_balloon: Contacto: [LinkedIn](https://www.linkedin.com/in/nicolas-scarafia/).
+## <p align="center"> :envelope: Contacto: [LinkedIn](https://www.linkedin.com/in/nicolas-scarafia/). </p>
+
